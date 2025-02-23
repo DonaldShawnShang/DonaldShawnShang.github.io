@@ -25,7 +25,7 @@ Designed a **CNN-based AI model** to detect **DoS and spoofing attacks** in vehi
 ### **📜 Publications & Patents**
 
 * 🏆 **Patent:** *Network Switch* (Patent No. ZL 2022 2 3126982.8, China)
-* 📖 **Reviewer:** *Acta Electronica Sinica*
+* 📖 **Reviewer:** *Chinese Journal of Electronics*
 
 ### **🏆 Honors & Awards**
 
