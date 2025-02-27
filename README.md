@@ -30,7 +30,9 @@ Designed a **CNN-based AI model** to detect **various car-hacking attacks** in v
 ### **🏆 Honors & Awards**
 
 🥉 **3rd Award in the 16th National Cybersecurity Competition, Zhejiang University** (2023)
+
 🥈 **Global Runner-up in DEF CON 30 Auto-driving Contest, Univeristy of California, Irvine** (2022)
+
 🏅 **BJTU Elite Award (Top 6 Students in University), Beijing Jiaotong University** (2023)
 
 ### **📫 Let's Connect!**
