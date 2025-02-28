@@ -39,4 +39,4 @@ Designed a **CNN-based AI model** to detect **various car-hacking attacks** in v
 
 * **GitHub:** [DonaldShawnShang](https://github.com/DonaldShawnShang)
 * **LinkedIn:** [Wentao Shang](https://www.linkedin.com/in/wentao-shang-03331a340/)
-* **Email:** [shangwentao3@outlook.com](mailto:shangwentao3@outlook.com)
+* **Email:** shangwentao3 AT outlook dot com
