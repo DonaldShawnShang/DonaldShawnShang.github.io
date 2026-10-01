@@ -3,30 +3,40 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Wentao Shang (尚文韬) · Sun Yat-sen University</title>
-  <meta name="description" content="Wentao Shang (尚文韬) — Eng.D student at Sun Yat-sen University and research assistant at Pengcheng Laboratory, working on in-vehicle network security and the security of LLM-based agents.">
-  <meta name="author" content="Wentao Shang">
+  <title>Wentao (Donald) Shang · 尚文韬</title>
+  <meta name="description" content="Wentao (Donald) Shang (尚文韬) — Eng.D student at the School of Computer Science and Engineering, Sun Yat-sen University, working on in-vehicle network security and the security of LLM-based agents.">
+  <meta name="author" content="Wentao (Donald) Shang">
   <meta name="color-scheme" content="light dark">
-  <meta name="theme-color" content="#faf8f4" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#141312" media="(prefers-color-scheme: dark)">
   <link rel="canonical" href="https://donaldshawnshang.github.io/">
 
   <meta property="og:type" content="profile">
-  <meta property="og:title" content="Wentao Shang (尚文韬)">
+  <meta property="og:title" content="Wentao (Donald) Shang · 尚文韬">
   <meta property="og:description" content="Eng.D student at Sun Yat-sen University · In-vehicle network security · Security of LLM agents">
   <meta property="og:url" content="https://donaldshawnshang.github.io/">
   <meta property="og:image" content="https://donaldshawnshang.github.io/assets/img/avatar.jpg">
 
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-  <link rel="preload" href="assets/fonts/source-serif-4.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/source-sans-3.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- Apply saved theme / language before first paint (no flash) -->
+  <script>
+    (function () {
+      var d = document.documentElement;
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'light' || t === 'dark') d.dataset.theme = t;
+        if (localStorage.getItem('lang') === 'zh') { d.dataset.lang = 'zh'; d.lang = 'zh-CN'; }
+      } catch (e) {}
+    })();
+  </script>
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Wentao Shang",
-    "alternateName": "尚文韬",
+    "alternateName": ["Donald Shang", "尚文韬"],
     "url": "https://donaldshawnshang.github.io/",
     "email": "mailto:shangwentao3@outlook.com",
     "affiliation": [
@@ -51,138 +61,154 @@
   <symbol id="i-mail" viewBox="0 0 512 512"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></symbol>
   <symbol id="i-pdf" viewBox="0 0 512 512"><path d="M64 464l48 0 0 48-48 0c-35.3 0-64-28.7-64-64L0 64C0 28.7 28.7 0 64 0L229.5 0c17 0 33.3 6.7 45.3 18.7l90.5 90.5c12 12 18.7 28.3 18.7 45.3L384 304l-48 0 0-144-80 0c-17.7 0-32-14.3-32-32l0-80L64 48c-8.8 0-16 7.2-16 16l0 384c0 8.8 7.2 16 16 16zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></symbol>
   <symbol id="i-pin" viewBox="0 0 384 512"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></symbol>
-  <symbol id="i-inst" viewBox="0 0 512 512"><path d="M243.4 2.6l-224 96c-14 6-21.8 21-18.7 35.8S16.8 160 32 160l0 8c0 13.3 10.7 24 24 24l400 0c13.3 0 24-10.7 24-24l0-8c15.2 0 28.3-10.7 31.3-25.6s-4.8-29.9-18.7-35.8l-224-96c-8-3.4-17.2-3.4-25.2 0zM128 224l-64 0 0 196.3c-.6 .3-1.2 .7-1.8 1.1l-48 32c-11.7 7.8-17 22.4-12.9 35.9S17.9 512 32 512l448 0c14.1 0 26.5-9.2 30.6-22.7s-1.1-28.1-12.9-35.9l-48-32c-.6-.4-1.2-.7-1.8-1.1L448 224l-64 0 0 192-40 0 0-192-64 0 0 192-48 0 0-192-64 0 0 192-40 0 0-192zM256 64a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></symbol>
   <symbol id="i-ext" viewBox="0 0 512 512"><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></symbol>
   <symbol id="i-cite" viewBox="0 0 448 512"><path d="M448 296c0 66.3-53.7 120-120 120l-8 0c-17.7 0-32-14.3-32-32s14.3-32 32-32l8 0c30.9 0 56-25.1 56-56l0-8-64 0c-35.3 0-64-28.7-64-64l0-64c0-35.3 28.7-64 64-64l64 0c35.3 0 64 28.7 64 64l0 32 0 32 0 72zm-256 0c0 66.3-53.7 120-120 120l-8 0c-17.7 0-32-14.3-32-32s14.3-32 32-32l8 0c30.9 0 56-25.1 56-56l0-8-64 0c-35.3 0-64-28.7-64-64l0-64c0-35.3 28.7-64 64-64l64 0c35.3 0 64 28.7 64 64l0 32 0 32 0 72z"/></symbol>
   <symbol id="i-link" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 512 512"><path d="M361.5 1.2c5 2.1 8.6 6.6 9.6 11.9L391 121l107.9 19.8c5.3 1 9.8 4.6 11.9 9.6s1.5 10.7-1.6 15.2L446.9 256l62.3 90.3c3.1 4.5 3.7 10.2 1.6 15.2s-6.6 8.6-11.9 9.6L391 391 371.1 498.9c-1 5.3-4.6 9.8-9.6 11.9s-10.7 1.5-15.2-1.6L256 446.9l-90.3 62.3c-4.5 3.1-10.2 3.7-15.2 1.6s-8.6-6.6-9.6-11.9L121 391 13.1 371.1c-5.3-1-9.8-4.6-11.9-9.6s-1.5-10.7 1.6-15.2L65.1 256 2.8 165.7c-3.1-4.5-3.7-10.2-1.6-15.2s6.6-8.6 11.9-9.6L121 121 140.9 13.1c1-5.3 4.6-9.8 9.6-11.9s10.7-1.5 15.2 1.6L256 65.1 346.3 2.8c4.5-3.1 10.2-3.7 15.2-1.6zM160 256a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zm224 0a128 128 0 1 0 -256 0 128 128 0 1 0 256 0z"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 384 512"><path d="M223.5 32C100 32 0 132.3 0 256S100 480 223.5 480c60.6 0 115.5-24.2 155.8-63.4c5-4.9 6.3-12.5 3.1-18.7s-10.1-9.7-17-8.5c-9.8 1.7-19.8 2.6-30.1 2.6c-96.9 0-175.5-78.8-175.5-176c0-65.8 36-123.1 89.3-153.3c6.1-3.5 9.2-10.5 7.7-17.3s-7.3-11.9-14.3-12.5c-6.3-.5-12.6-.8-19-.8z"/></symbol>
 </svg>
-  <a class="skip-link" href="#main">Skip to content</a>
+  <a class="skip-link" href="#main"><span class="en">Skip to content</span><span class="zh">跳到正文</span></a>
 
-  <header class="topbar">
-    <div class="topbar-inner">
-      <a class="brand" href="#about">Wentao Shang</a>
+  <!-- ============ Top bar ============ -->
+  <header class="masthead">
+    <div class="masthead-inner">
+      <a class="site-title" href="#about">Wentao (Donald) Shang</a>
       <nav class="nav" aria-label="Sections">
-        <a href="#about">About</a>
-        <a href="#news">News</a>
-        <a href="#publications">Publications</a>
-        <a href="#education">Education</a>
-        <a href="#honors">Honors</a>
-        <a href="#service">Service</a>
-        <a href="assets/cv/Wentao_Shang_CV.pdf">CV</a>
+        <a href="#about"><span class="en">About Me</span><span class="zh">关于我</span></a>
+        <a href="#news"><span class="en">News</span><span class="zh">动态</span></a>
+        <a href="#publications"><span class="en">Publications</span><span class="zh">论文成果</span></a>
+        <a href="#honors"><span class="en">Honors</span><span class="zh">荣誉奖项</span></a>
+        <a href="#education"><span class="en">Education</span><span class="zh">教育经历</span></a>
+        <a href="#service"><span class="en">Service</span><span class="zh">学术服务</span></a>
+        <a href="assets/cv/Wentao_Shang_CV.pdf"><span class="en">CV</span><span class="zh">简历</span></a>
       </nav>
+      <div class="toggles">
+        <button type="button" class="toggle" id="lang-toggle" title="切换到中文 / Switch to English">
+          <span class="en" lang="zh-CN">中文</span><span class="zh" lang="en">EN</span>
+        </button>
+        <button type="button" class="toggle" id="theme-toggle" aria-label="Toggle light / dark mode" title="Light / Dark">
+          <svg class="icon i-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+          <svg class="icon i-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+        </button>
+      </div>
     </div>
   </header>
 
   <div class="page">
 
     <!-- ============ Profile ============ -->
-    <aside class="profile reveal" style="--i:0" aria-label="Profile">
-      <img class="avatar" src="assets/img/avatar.jpg" width="168" height="168" alt="Portrait of Wentao Shang">
-      <h1 class="profile-name">Wentao Shang</h1>
+    <aside class="profile" aria-label="Profile">
+      <img class="avatar" src="assets/img/avatar.jpg" width="176" height="176" alt="Wentao (Donald) Shang">
+      <h1 class="profile-name">Wentao (Donald) Shang</h1>
       <p class="profile-name-zh" lang="zh-CN">尚文韬</p>
       <p class="profile-role">
-        <span>Eng.D Student</span>
-        <span class="org">Sun Yat-sen University</span>
-        <span>Research Assistant</span>
-        <span class="org">Pengcheng Laboratory</span>
+        <span class="en">Eng.D Student, SYSU</span><span class="zh">中山大学 工程博士生</span>
+        <span class="en">Research Assistant, Pengcheng Lab</span><span class="zh">鹏城实验室 研究助理</span>
       </p>
       <ul class="profile-links">
-        <li><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>Guangzhou / Shenzhen, China</li>
-        <li><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg><a href="mailto:shangwentao3@outlook.com">shangwentao3@outlook.com</a></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg><span class="en">Guangzhou &amp; Shenzhen, China</span><span class="zh">中国 · 广州 / 深圳</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg><a href="mailto:shangwentao3@outlook.com"><span class="en">Email</span><span class="zh">邮箱</span></a></li>
         <li><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg><a href="https://github.com/DonaldShawnShang">GitHub</a></li>
         <li><svg class="icon" aria-hidden="true"><use href="#i-linkedin"/></svg><a href="https://www.linkedin.com/in/wentao-shang-03331a340/">LinkedIn</a></li>
         <!-- Add when available:
         <li><svg class="icon" aria-hidden="true"><use href="#i-scholar"/></svg><a href="https://scholar.google.com/citations?user=XXXX">Google Scholar</a></li>
-        <li><svg class="icon" aria-hidden="true"><use href="#i-orcid"/></svg><a href="https://orcid.org/XXXX-XXXX-XXXX-XXXX">ORCID</a></li>
         -->
+        <li><svg class="icon" aria-hidden="true"><use href="#i-pdf"/></svg><a href="assets/cv/Wentao_Shang_CV.pdf"><span class="en">CV (PDF)</span><span class="zh">简历 (PDF)</span></a></li>
       </ul>
-      <div class="cv-button-wrap">
-        <a class="cv-button" href="assets/cv/Wentao_Shang_CV.pdf"><svg class="icon" aria-hidden="true"><use href="#i-pdf"/></svg>Download CV</a>
-      </div>
     </aside>
 
     <main id="main">
 
       <!-- ============ About ============ -->
-      <section id="about" class="reveal" style="--i:1">
-        <h2 class="section-title"><span class="section-no">01</span>About</h2>
-        <p class="lead">
-          I am an Engineering Doctorate (Eng.D) student in Computer Technology at
-          <a href="https://www.sysu.edu.cn/">Sun Yat-sen University</a>, and a research assistant in the
-          Department of New Networks at <a href="https://www.pcl.ac.cn/">Pengcheng Laboratory</a>, where I am a jointly trained Eng.D student.
-          Before that, I received my B.Eng. in Information Security (Secret Protection) from
-          <a href="https://www.bjtu.edu.cn/">Beijing Jiaotong University</a> in 2024.
-        </p>
-        <p>My research sits at the intersection of machine learning and system security, along two lines:</p>
-        <ul class="interests">
-          <li>
-            <strong>In-vehicle network security</strong>
-            <span>Learning-based intrusion detection for CAN and Automotive Ethernet (TSN, CAN-over-UDP, SOME/IP) that works across protocol layers while staying small enough for in-vehicle controllers.</span>
-          </li>
-          <li>
-            <strong>Security of LLM-based agents</strong>
-            <span>Red-teaming, injection attacks, and practical guardrails for LLM agents that act through tools.</span>
-          </li>
-        </ul>
-        <p>
-          I also enjoy hands-on security: I was a global runner-up in the BCTF&nbsp;&times;&nbsp;DEF&nbsp;CON&nbsp;30 Auto-driving Contest
-          and won third prize in the 16th National Cybersecurity Competition.
-        </p>
+      <section id="about">
+        <h2 class="section-title"><span class="emoji" aria-hidden="true">🔥</span><span class="en">About Me</span><span class="zh">关于我</span></h2>
+        <div class="en">
+          <p>
+            I am an Eng.D student in Computer Technology at the
+            <a href="https://cse.sysu.edu.cn/">School of Computer Science and Engineering</a>,
+            <a href="https://www.sysu.edu.cn/">Sun Yat-sen University</a> (SYSU), and a jointly trained Eng.D student in the
+            Department of New Networks at <a href="https://www.pcl.ac.cn/">Pengcheng Laboratory</a>, where I work as a research assistant.
+            I received my B.Eng. in Information Security (Secret Protection) from the
+            <a href="https://cs.bjtu.edu.cn/">School of Computer Science and Technology</a>,
+            <a href="https://www.bjtu.edu.cn/">Beijing Jiaotong University</a> (BJTU), in 2024.
+          </p>
+          <p>My research lies at the intersection of machine learning and system security, currently along two lines:</p>
+          <ul class="interests">
+            <li><b>In-vehicle network security</b> — learning-based intrusion detection for CAN and Automotive Ethernet (TSN, CAN-over-UDP, SOME/IP) that works across protocol layers while staying lightweight enough for in-vehicle controllers.</li>
+            <li><b>Security of LLM-based agents</b> — red-teaming, injection attacks, and practical guardrails for LLM agents that act through tools.</li>
+          </ul>
+          <p>
+            I also enjoy hands-on security: I was a global runner-up in the BCTF&nbsp;&times;&nbsp;DEF&nbsp;CON&nbsp;30 Auto-driving Contest
+            and won third prize in the 16th National Cybersecurity Competition.
+          </p>
+        </div>
+        <div class="zh" lang="zh-CN">
+          <p>
+            我目前是<a href="https://www.sysu.edu.cn/">中山大学</a><a href="https://cse.sysu.edu.cn/">计算机学院</a>计算机技术专业的工程博士研究生，
+            同时作为联合培养博士生在<a href="https://www.pcl.ac.cn/">鹏城实验室</a>新型网络部担任研究助理。
+            2024 年本科毕业于<a href="https://www.bjtu.edu.cn/">北京交通大学</a><a href="https://cs.bjtu.edu.cn/">计算机科学与技术学院</a>，信息安全（保密技术）专业，获工学学士学位。
+          </p>
+          <p>我的研究方向是机器学习与系统安全的交叉，目前主要关注两条主线：</p>
+          <ul class="interests">
+            <li><b>车载网络安全</b>：面向 CAN 与车载以太网（TSN、CAN-over-UDP、SOME/IP）的基于学习的入侵检测，实现跨协议层的统一检测，同时足够轻量，可部署于车载控制器。</li>
+            <li><b>大模型智能体安全</b>：面向通过工具执行任务的大语言模型智能体，研究红队测试、注入攻击与实用的防护机制。</li>
+          </ul>
+          <p>我也热衷于实战攻防，曾获 BCTF × DEF CON 30 自动驾驶竞赛全球亚军、第十六届全国网络安全竞赛三等奖。</p>
+        </div>
       </section>
 
       <!-- ============ News ============ -->
-      <section id="news" class="reveal" style="--i:2">
-        <h2 class="section-title"><span class="section-no">02</span>News</h2>
-        <ul class="rows">
-          <li>
-            <time datetime="2026-05">2026.05</time>
-            <div class="what">Our paper <a href="#pub-autoguard"><strong>AutoGuard</strong></a> on unified cross-layer intrusion detection for Automotive Ethernet is published in <em>Computer Networks</em> (Elsevier).</div>
+      <section id="news">
+        <h2 class="section-title"><span class="emoji" aria-hidden="true">🎉</span><span class="en">News</span><span class="zh">动态</span></h2>
+        <ul class="dated">
+          <li><span class="date">2026.05:</span>
+            <span class="en">Our paper <a href="#pub-autoguard">AutoGuard</a> on unified cross-layer intrusion detection for Automotive Ethernet is published in <i>Computer Networks</i> (Elsevier, CCF-B).</span>
+            <span class="zh">论文 <a href="#pub-autoguard">AutoGuard</a>（车载以太网统一跨层入侵检测）发表于 <i>Computer Networks</i>（Elsevier，CCF-B）。</span>
           </li>
-          <li>
-            <time datetime="2025-09">2025.09</time>
-            <div class="what">Joined the Department of New Networks at Pengcheng Laboratory as a jointly trained Eng.D student.</div>
+          <li><span class="date">2025.09:</span>
+            <span class="en">Joined the Department of New Networks, Pengcheng Laboratory, as a jointly trained Eng.D student.</span>
+            <span class="zh">加入鹏城实验室新型网络部，作为联合培养博士生开展科研工作。</span>
           </li>
-          <li>
-            <time datetime="2025-08">2025.08</time>
-            <div class="what">Our patent application on CAN bus intrusion detection with an adaptive unscented Kalman filter is published (<a href="https://patents.google.com/patent/CN120528633A/en">CN120528633A</a>).</div>
+          <li><span class="date">2025.08:</span>
+            <span class="en">Our patent application on CAN bus intrusion detection based on an adaptive unscented Kalman filter is published (<a href="https://patents.google.com/patent/CN120528633A/en">CN120528633A</a>).</span>
+            <span class="zh">发明专利申请《一种基于自适应无迹卡尔曼滤波的CAN总线入侵检测方法》公开（<a href="https://patents.google.com/patent/CN120528633A/zh">CN120528633A</a>）。</span>
           </li>
-          <li>
-            <time datetime="2024-09">2024.09</time>
-            <div class="what">Started my Eng.D in Computer Technology at Sun Yat-sen University.</div>
+          <li><span class="date">2024.09:</span>
+            <span class="en">Started my Eng.D at the School of Computer Science and Engineering, Sun Yat-sen University.</span>
+            <span class="zh">进入中山大学计算机学院攻读工程博士学位。</span>
           </li>
-          <li>
-            <time datetime="2024-06">2024.06</time>
-            <div class="what">Received my B.Eng. in Information Security from Beijing Jiaotong University.</div>
+          <li><span class="date">2024.06:</span>
+            <span class="en">Received my B.Eng. from Beijing Jiaotong University.</span>
+            <span class="zh">本科毕业于北京交通大学，获工学学士学位。</span>
           </li>
         </ul>
       </section>
 
       <!-- ============ Publications ============ -->
-      <section id="publications" class="reveal" style="--i:3">
-        <h2 class="section-title"><span class="section-no">03</span>Publications</h2>
+      <section id="publications">
+        <h2 class="section-title"><span class="emoji" aria-hidden="true">📝</span><span class="en">Publications</span><span class="zh">论文成果</span></h2>
 
-        <h3 class="subhead">Journal Articles</h3>
-        <article class="pub" id="pub-autoguard">
-          <a class="pub-figure" href="assets/img/autoguard-overview.webp" target="_blank" rel="noopener" title="View full-size figure">
-            <span class="venue-badge">Computer Networks 2026</span>
+        <h3 class="subhead"><span class="emoji" aria-hidden="true">✨</span><span class="en">Journal Papers</span><span class="zh">期刊论文</span></h3>
+
+        <div class="paper-box" id="pub-autoguard">
+          <a class="paper-box-image" href="assets/img/autoguard-overview.webp" target="_blank" rel="noopener" title="View full-size figure">
+            <span class="badge">Computer Networks 2026</span>
             <img src="assets/img/autoguard-overview-thumb.webp" width="960" height="437" loading="lazy"
                  alt="AutoGuard pipeline: cross-layer traffic (CAN/UDP, SOME/IP, AVTP) is windowed, payload bytes are hex-bigram tokenized, encoded by a pre-trained 12-layer Transformer, and a shallow head performs binary detection and multi-class attack attribution.">
           </a>
-          <div class="pub-body">
-            <h4 class="pub-title">
-              <a href="https://www.sciencedirect.com/science/article/pii/S1389128626004068">AutoGuard: Unified and Lightweight Cross-Layer Intrusion Detection for Automotive Ethernet via Contextual Traffic Analysis</a>
-            </h4>
-            <p class="pub-authors"><span class="me">Wentao Shang</span>, Shuyuan Jin, Weihong Han</p>
-            <p class="pub-venue"><em>Computer Networks</em> (Elsevier), Vol.&nbsp;286, Article&nbsp;112394, 2026.<span class="tag">CCF-B</span></p>
-            <p class="pub-tldr"><b>TL;DR</b>A single byte-level Transformer over hex-bigram tokens jointly monitors TSN streams, CAN-over-UDP and SOME/IP traffic, covering eleven attack types without protocol-specific feature engineering. Teacher&ndash;student distillation shrinks it from 132M to 1.5M parameters (~90&times;) for deployment on zonal controllers.</p>
-            <div class="pub-links">
-              <a href="https://www.sciencedirect.com/science/article/pii/S1389128626004068"><svg class="icon" aria-hidden="true"><use href="#i-ext"/></svg>Paper</a>
-              <a href="https://doi.org/10.1016/j.comnet.2026.112394"><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg>DOI</a>
-              <button type="button" data-bib="bib-autoguard" aria-expanded="false" aria-controls="bib-autoguard"><svg class="icon" aria-hidden="true"><use href="#i-cite"/></svg>BibTeX</button>
-            </div>
-          </div>
-          <div class="bibtex" id="bib-autoguard" hidden>
-            <button type="button" class="copy">Copy</button>
+          <div class="paper-box-text">
+            <p class="paper-title"><a href="https://www.sciencedirect.com/science/article/pii/S1389128626004068">AutoGuard: Unified and Lightweight Cross-Layer Intrusion Detection for Automotive Ethernet via Contextual Traffic Analysis</a></p>
+            <p class="paper-authors"><span class="me">Wentao Shang</span>, Shuyuan Jin, Weihong Han</p>
+            <p class="paper-venue"><i>Computer Networks</i> (Elsevier), Vol. 286, 112394, 2026<span class="tag">CCF-B</span></p>
+            <p class="paper-tldr">
+              <span class="en"><b>TL;DR:</b> A single byte-level Transformer over hex-bigram tokens jointly monitors TSN streams, CAN-over-UDP and SOME/IP traffic, covering eleven attack types without protocol-specific feature engineering. Teacher&ndash;student distillation shrinks it from 132M to 1.5M parameters (~90&times;) for deployment on zonal controllers.</span>
+              <span class="zh"><b>简介：</b>基于十六进制双字节（hex-bigram）分词的字节级 Transformer，在统一表示下同时检测 TSN 流、CAN-over-UDP 与 SOME/IP 流量，覆盖 11 类攻击，无需针对协议的特征工程；通过师生蒸馏将模型从 132M 压缩到 1.5M 参数（约 90 倍），可部署于区域控制器。</span>
+            </p>
+            <p class="paper-links">
+              <a href="https://www.sciencedirect.com/science/article/pii/S1389128626004068">Paper</a><span class="sep">|</span><a href="https://doi.org/10.1016/j.comnet.2026.112394">DOI</a><span class="sep">|</span><button type="button" data-bib="bib-autoguard" aria-expanded="false" aria-controls="bib-autoguard">BibTeX</button>
+            </p>
+            <div class="bibtex" id="bib-autoguard" hidden>
+              <button type="button" class="copy"><span class="en">Copy</span><span class="zh">复制</span></button>
 <pre>@article{shang2026autoguard,
   title     = {AutoGuard: Unified and Lightweight Cross-Layer Intrusion Detection
                for Automotive Ethernet via Contextual Traffic Analysis},
@@ -194,96 +220,67 @@
   publisher = {Elsevier},
   doi       = {10.1016/j.comnet.2026.112394}
 }</pre>
+            </div>
           </div>
-        </article>
+        </div>
 
-        <h3 class="subhead">Patents</h3>
+        <h3 class="subhead"><span class="emoji" aria-hidden="true">💡</span><span class="en">Patents</span><span class="zh">专利</span></h3>
         <ul class="patents">
           <li>
-            <span class="label">[P2]</span>
-            <div>
-              <span class="title"><a href="https://patents.google.com/patent/CN120528633A/en">A CAN Bus Intrusion Detection Method Based on Adaptive Unscented Kalman Filter (AUKF)</a></span>
-              <span class="meta">Shuyuan Jin, <strong>Wentao Shang</strong></span>
-              <span class="meta">CN Patent Application, CN120528633A, published Aug 2025.</span>
-            </div>
+            <a href="https://patents.google.com/patent/CN120528633A/en"><span class="en">A CAN Bus Intrusion Detection Method Based on Adaptive Unscented Kalman Filter (AUKF)</span><span class="zh">一种基于自适应无迹卡尔曼滤波的CAN总线入侵检测方法</span></a>
+            <span class="meta">Shuyuan Jin, <b>Wentao Shang</b> · <span class="en">CN invention patent application, CN120528633A, published Aug 2025</span><span class="zh">发明专利申请，CN120528633A，2025 年 8 月公开</span></span>
           </li>
           <li>
-            <span class="label">[P1]</span>
-            <div>
-              <span class="title"><a href="https://patents.google.com/patent/CN218734698U/zh">Network Switch</a></span>
-              <span class="meta">Zhaoxi Li, <strong>Wentao Shang</strong></span>
-              <span class="meta">CN Utility Model Patent, ZL 2022 2 3126982.8 (CN218734698U), granted Mar 2023.</span>
-            </div>
-          </li>
-        </ul>
-      </section>
-
-      <!-- ============ Education ============ -->
-      <section id="education" class="reveal" style="--i:4">
-        <h2 class="section-title"><span class="section-no">04</span>Education</h2>
-        <ul class="rows">
-          <li>
-            <span class="when">2024.09 – now</span>
-            <div class="what">
-              <span class="title">Sun Yat-sen University</span> <span class="where">· Guangzhou, China</span>
-              <span class="meta">Eng.D in Computer Technology</span>
-            </div>
-          </li>
-          <li>
-            <span class="when">2025.09 – now</span>
-            <div class="what">
-              <span class="title">Pengcheng Laboratory</span> <span class="where">· Shenzhen, China</span>
-              <span class="meta">Jointly trained Eng.D student · Research Assistant, Department of New Networks</span>
-            </div>
-          </li>
-          <li>
-            <span class="when">2020.09 – 2024.06</span>
-            <div class="what">
-              <span class="title">Beijing Jiaotong University</span> <span class="where">· Beijing, China</span>
-              <span class="meta">B.Eng. in Information Security (Secret Protection)</span>
-            </div>
+            <a href="https://patents.google.com/patent/CN218734698U/zh"><span class="en">Network Switch</span><span class="zh">一种网络交换机</span></a>
+            <span class="meta">Zhaoxi Li, <b>Wentao Shang</b> · <span class="en">CN utility model patent, ZL 2022 2 3126982.8, granted Mar 2023</span><span class="zh">实用新型专利，ZL 2022 2 3126982.8，2023 年 3 月授权</span></span>
           </li>
         </ul>
       </section>
 
       <!-- ============ Honors ============ -->
-      <section id="honors" class="reveal" style="--i:5">
-        <h2 class="section-title"><span class="section-no">05</span>Honors &amp; Awards</h2>
-        <ul class="rows">
-          <li>
-            <span class="when">2023</span>
-            <div class="what">
-              <span class="title">Third Prize, 16th National Cybersecurity Competition</span>
-              <span class="meta">Awarded by Zhejiang University</span>
-            </div>
+      <section id="honors">
+        <h2 class="section-title"><span class="emoji" aria-hidden="true">🎖</span><span class="en">Honors and Awards</span><span class="zh">荣誉奖项</span></h2>
+        <ul class="dated">
+          <li><span class="date">2023</span>
+            <span class="en">Third Prize, 16th National Cybersecurity Competition <span class="sub">(awarded by Zhejiang University)</span></span>
+            <span class="zh">第十六届全国网络安全竞赛 三等奖 <span class="sub">（浙江大学）</span></span>
           </li>
-          <li>
-            <span class="when">2023</span>
-            <div class="what">
-              <span class="title">BJTU Elite Award</span> <span class="where">· Top 6 students university-wide</span>
-              <span class="meta">Beijing Jiaotong University</span>
-            </div>
+          <li><span class="date">2023</span>
+            <span class="en">BJTU Elite Award <span class="sub">(top 6 students university-wide, Beijing Jiaotong University)</span></span>
+            <span class="zh">北京交通大学英才奖 <span class="sub">（全校前 6 名）</span></span>
           </li>
-          <li>
-            <span class="when">2022</span>
-            <div class="what">
-              <span class="title">Global Runner-up, BCTF &times; DEF CON 30 Auto-driving Contest</span>
-              <span class="meta">Baidu Security (BCTF) &times; University of California, Irvine</span>
-            </div>
+          <li><span class="date">2022</span>
+            <span class="en">Global Runner-up, BCTF &times; DEF CON 30 Auto-driving Contest <span class="sub">(Baidu Security &times; UC Irvine)</span></span>
+            <span class="zh">BCTF × DEF CON 30 自动驾驶竞赛 全球亚军 <span class="sub">（百度安全 × 加州大学尔湾分校）</span></span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- ============ Education ============ -->
+      <section id="education">
+        <h2 class="section-title"><span class="emoji" aria-hidden="true">📖</span><span class="en">Education</span><span class="zh">教育经历</span></h2>
+        <ul class="dated">
+          <li><span class="date">2024.09 – <span class="en">present</span><span class="zh">至今</span></span>
+            <span class="en"><b>Sun Yat-sen University</b>, School of Computer Science and Engineering — Eng.D in Computer Technology <span class="sub">· Guangzhou</span></span>
+            <span class="zh"><b>中山大学</b> 计算机学院 · 计算机技术 工程博士 <span class="sub">· 广州</span></span>
+          </li>
+          <li><span class="date">2025.09 – <span class="en">present</span><span class="zh">至今</span></span>
+            <span class="en"><b>Pengcheng Laboratory</b>, Department of New Networks — Jointly trained Eng.D student &amp; Research Assistant <span class="sub">· Shenzhen</span></span>
+            <span class="zh"><b>鹏城实验室</b> 新型网络部 · 联合培养博士生 / 研究助理 <span class="sub">· 深圳</span></span>
+          </li>
+          <li><span class="date">2020.09 – 2024.06</span>
+            <span class="en"><b>Beijing Jiaotong University</b>, School of Computer Science and Technology — B.Eng. in Information Security (Secret Protection) <span class="sub">· Beijing</span></span>
+            <span class="zh"><b>北京交通大学</b> 计算机科学与技术学院 · 信息安全（保密技术） 工学学士 <span class="sub">· 北京</span></span>
           </li>
         </ul>
       </section>
 
       <!-- ============ Service ============ -->
-      <section id="service" class="reveal" style="--i:6">
-        <h2 class="section-title"><span class="section-no">06</span>Academic Service</h2>
-        <ul class="rows">
-          <li>
-            <span class="when">Reviewer</span>
-            <div class="what">
-              <span class="title"><em>Neural Networks</em></span> <span class="where">· 2026</span><br>
-              <span class="title"><em>Chinese Journal of Electronics</em></span> <span class="where">· 2024</span>
-            </div>
+      <section id="service">
+        <h2 class="section-title"><span class="emoji" aria-hidden="true">💼</span><span class="en">Professional Service</span><span class="zh">学术服务</span></h2>
+        <ul class="dated">
+          <li><span class="en">Journal Reviewer:</span><span class="zh">期刊审稿人：</span>
+            <i>Neural Networks</i> (2026), <i>Chinese Journal of Electronics</i> (2024)
           </li>
         </ul>
       </section>
@@ -292,44 +289,68 @@
   </div>
 
   <footer class="footer">
-    <span>&copy; 2026 Wentao Shang</span>
-    <span>Last updated: Oct 2026</span>
+    <span>&copy; 2026 Wentao (Donald) Shang</span>
+    <span><span class="en">Last updated: Oct 2026</span><span class="zh">最后更新：2026 年 10 月</span></span>
   </footer>
 
   <script>
-    // BibTeX toggle + copy
-    document.querySelectorAll('[data-bib]').forEach(function (btn) {
-      var box = document.getElementById(btn.dataset.bib);
-      btn.addEventListener('click', function () {
-        var open = box.hidden;
-        box.hidden = !open;
-        btn.setAttribute('aria-expanded', String(open));
-      });
-      box.querySelector('.copy').addEventListener('click', function (e) {
-        var text = box.querySelector('pre').textContent;
-        navigator.clipboard.writeText(text).then(function () {
-          e.target.textContent = 'Copied';
-          setTimeout(function () { e.target.textContent = 'Copy'; }, 1500);
-        });
-      });
-    });
+    (function () {
+      var root = document.documentElement;
+      function save(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
 
-    // Highlight the nav link of the section in view
-    var links = {};
-    document.querySelectorAll('.nav a[href^="#"]').forEach(function (a) {
-      links[a.getAttribute('href').slice(1)] = a;
-    });
-    if ('IntersectionObserver' in window) {
-      var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (!entry.isIntersecting) return;
-          Object.values(links).forEach(function (a) { a.classList.remove('is-active'); });
-          var a = links[entry.target.id];
-          if (a) a.classList.add('is-active');
+      // Light / dark toggle (defaults to the system setting)
+      document.getElementById('theme-toggle').addEventListener('click', function () {
+        var dark = root.dataset.theme
+          ? root.dataset.theme === 'dark'
+          : window.matchMedia('(prefers-color-scheme: dark)').matches;
+        root.dataset.theme = dark ? 'light' : 'dark';
+        save('theme', root.dataset.theme);
+      });
+
+      // English / Chinese toggle
+      document.getElementById('lang-toggle').addEventListener('click', function () {
+        var zh = root.dataset.lang !== 'zh';
+        if (zh) root.dataset.lang = 'zh'; else delete root.dataset.lang;
+        root.lang = zh ? 'zh-CN' : 'en';
+        save('lang', zh ? 'zh' : 'en');
+      });
+
+      // BibTeX toggle + copy
+      document.querySelectorAll('[data-bib]').forEach(function (btn) {
+        var box = document.getElementById(btn.dataset.bib);
+        btn.addEventListener('click', function () {
+          box.hidden = !box.hidden;
+          btn.setAttribute('aria-expanded', String(!box.hidden));
         });
-      }, { rootMargin: '-30% 0px -60% 0px' });
-      document.querySelectorAll('main > section[id]').forEach(function (s) { io.observe(s); });
-    }
+        box.querySelector('.copy').addEventListener('click', function (e) {
+          var label = e.currentTarget;
+          navigator.clipboard.writeText(box.querySelector('pre').textContent).then(function () {
+            label.querySelector('.en').textContent = 'Copied';
+            label.querySelector('.zh').textContent = '已复制';
+            setTimeout(function () {
+              label.querySelector('.en').textContent = 'Copy';
+              label.querySelector('.zh').textContent = '复制';
+            }, 1500);
+          });
+        });
+      });
+
+      // Highlight the nav link of the section in view
+      var links = {};
+      document.querySelectorAll('.nav a[href^="#"]').forEach(function (a) {
+        links[a.getAttribute('href').slice(1)] = a;
+      });
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            Object.values(links).forEach(function (a) { a.classList.remove('is-active'); });
+            if (links[entry.target.id]) links[entry.target.id].classList.add('is-active');
+          });
+        }, { rootMargin: '-30% 0px -60% 0px' });
+        document.querySelectorAll('main > section[id]').forEach(function (s) { io.observe(s); });
+      }
+    })();
   </script>
 </body>
 </html>
