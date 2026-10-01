@@ -4,14 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Wentao (Donald) Shang · 尚文韬</title>
-  <meta name="description" content="Wentao (Donald) Shang (尚文韬) — Eng.D student at the School of Computer Science and Engineering, Sun Yat-sen University, working on in-vehicle network security and the security of LLM-based agents.">
+  <meta name="description" content="Wentao (Donald) Shang (尚文韬) — Eng.D student at the School of Computer Science and Engineering, Sun Yat-sen University, working on AI security and the security of LLM-based agents.">
   <meta name="author" content="Wentao (Donald) Shang">
   <meta name="color-scheme" content="light dark">
   <link rel="canonical" href="https://donaldshawnshang.github.io/">
 
   <meta property="og:type" content="profile">
   <meta property="og:title" content="Wentao (Donald) Shang · 尚文韬">
-  <meta property="og:description" content="Eng.D student at Sun Yat-sen University · In-vehicle network security · Security of LLM agents">
+  <meta property="og:description" content="Eng.D student at Sun Yat-sen University · AI security · Security of LLM-based agents">
   <meta property="og:url" content="https://donaldshawnshang.github.io/">
   <meta property="og:image" content="https://donaldshawnshang.github.io/assets/img/avatar.jpg">
 
@@ -46,7 +46,8 @@
     "alumniOf": { "@type": "CollegeOrUniversity", "name": "Beijing Jiaotong University" },
     "sameAs": [
       "https://github.com/DonaldShawnShang",
-      "https://www.linkedin.com/in/wentao-shang-03331a340/"
+      "https://www.linkedin.com/in/wentao-shang-03331a340/",
+      "https://scholar.google.com/citations?user=Pp3daJAAAAAJ"
     ]
   }
   </script>
@@ -110,9 +111,7 @@
         <li><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg><a href="mailto:shangwentao3@outlook.com"><span class="en">Email</span><span class="zh">邮箱</span></a></li>
         <li><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg><a href="https://github.com/DonaldShawnShang">GitHub</a></li>
         <li><svg class="icon" aria-hidden="true"><use href="#i-linkedin"/></svg><a href="https://www.linkedin.com/in/wentao-shang-03331a340/">LinkedIn</a></li>
-        <!-- Add when available:
-        <li><svg class="icon" aria-hidden="true"><use href="#i-scholar"/></svg><a href="https://scholar.google.com/citations?user=XXXX">Google Scholar</a></li>
-        -->
+        <li><svg class="icon" aria-hidden="true"><use href="#i-scholar"/></svg><a href="https://scholar.google.com/citations?user=Pp3daJAAAAAJ">Google Scholar</a></li>
         <li><svg class="icon" aria-hidden="true"><use href="#i-pdf"/></svg><a href="assets/cv/Wentao_Shang_CV.pdf"><span class="en">CV (PDF)</span><span class="zh">简历 (PDF)</span></a></li>
       </ul>
     </aside>
@@ -132,10 +131,10 @@
             <a href="https://cs.bjtu.edu.cn/">School of Computer Science and Technology</a>,
             <a href="https://www.bjtu.edu.cn/">Beijing Jiaotong University</a> (BJTU), in 2024.
           </p>
-          <p>My research lies at the intersection of machine learning and system security, currently along two lines:</p>
+          <p>My research focuses on <b>AI security</b>, with an emphasis on LLM-based agents:</p>
           <ul class="interests">
-            <li><b>In-vehicle network security</b> — learning-based intrusion detection for CAN and Automotive Ethernet (TSN, CAN-over-UDP, SOME/IP) that works across protocol layers while staying lightweight enough for in-vehicle controllers.</li>
-            <li><b>Security of LLM-based agents</b> — red-teaming, injection attacks, and practical guardrails for LLM agents that act through tools.</li>
+            <li><b>AI &amp; agent security</b> (current focus) — how LLM agents that plan, call tools, and execute code can be manipulated through injected instructions and jailbreaks; systematic red-teaming to measure these risks at scale; and practical guardrails that monitor agent behavior and stop attacks before they cause harm.</li>
+            <li><b>In-vehicle network security</b> (previous work) — lightweight cross-layer intrusion detection for CAN and Automotive Ethernet (TSN, CAN-over-UDP, SOME/IP), which led to <a href="#pub-autoguard">AutoGuard</a> (<i>Computer Networks</i> 2026).</li>
           </ul>
           <p>
             I also enjoy hands-on security: I was a global runner-up in the BCTF&nbsp;&times;&nbsp;DEF&nbsp;CON&nbsp;30 Auto-driving Contest
@@ -148,10 +147,10 @@
             同时作为联合培养博士生在<a href="https://www.pcl.ac.cn/">鹏城实验室</a>新型网络部担任研究助理。
             2024 年本科毕业于<a href="https://www.bjtu.edu.cn/">北京交通大学</a><a href="https://cs.bjtu.edu.cn/">计算机科学与技术学院</a>，信息安全（保密技术）专业，获工学学士学位。
           </p>
-          <p>我的研究方向是机器学习与系统安全的交叉，目前主要关注两条主线：</p>
+          <p>我的研究方向是<b>人工智能安全</b>，重点关注大模型智能体安全：</p>
           <ul class="interests">
-            <li><b>车载网络安全</b>：面向 CAN 与车载以太网（TSN、CAN-over-UDP、SOME/IP）的基于学习的入侵检测，实现跨协议层的统一检测，同时足够轻量，可部署于车载控制器。</li>
-            <li><b>大模型智能体安全</b>：面向通过工具执行任务的大语言模型智能体，研究红队测试、注入攻击与实用的防护机制。</li>
+            <li><b>AI 与智能体安全</b>（当前重点）：研究具备规划、工具调用与代码执行能力的大模型智能体如何被注入指令和越狱攻击操纵；通过系统化的红队测试大规模度量这些风险；并构建能监控智能体行为、在攻击造成危害前将其拦截的实用防护机制。</li>
+            <li><b>车载网络安全</b>（此前工作）：面向 CAN 与车载以太网（TSN、CAN-over-UDP、SOME/IP）的轻量级跨层入侵检测，代表工作为 <a href="#pub-autoguard">AutoGuard</a>（<i>Computer Networks</i> 2026）。</li>
           </ul>
           <p>我也热衷于实战攻防，曾获 BCTF × DEF CON 30 自动驾驶竞赛全球亚军、第十六届全国网络安全竞赛三等奖。</p>
         </div>
@@ -201,8 +200,8 @@
             <p class="paper-authors"><span class="me">Wentao Shang</span>, Shuyuan Jin, Weihong Han</p>
             <p class="paper-venue"><i>Computer Networks</i> (Elsevier), Vol. 286, 112394, 2026<span class="tag">CCF-B</span></p>
             <p class="paper-tldr">
-              <span class="en"><b>TL;DR:</b> A single byte-level Transformer over hex-bigram tokens jointly monitors TSN streams, CAN-over-UDP and SOME/IP traffic, covering eleven attack types without protocol-specific feature engineering. Teacher&ndash;student distillation shrinks it from 132M to 1.5M parameters (~90&times;) for deployment on zonal controllers.</span>
-              <span class="zh"><b>简介：</b>基于十六进制双字节（hex-bigram）分词的字节级 Transformer，在统一表示下同时检测 TSN 流、CAN-over-UDP 与 SOME/IP 流量，覆盖 11 类攻击，无需针对协议的特征工程；通过师生蒸馏将模型从 132M 压缩到 1.5M 参数（约 90 倍），可部署于区域控制器。</span>
+              <span class="en"><b>TL;DR:</b> One byte-level Transformer detects attacks across TSN, CAN-over-UDP and SOME/IP traffic, then is distilled ~90&times; (132M &rarr; 1.5M parameters) for in-vehicle deployment.</span>
+              <span class="zh"><b>简介：</b>用一个字节级 Transformer 统一检测 TSN、CAN-over-UDP 与 SOME/IP 流量中的攻击，并蒸馏压缩约 90 倍（132M &rarr; 1.5M 参数）以便车载部署。</span>
             </p>
             <p class="paper-links">
               <a href="https://www.sciencedirect.com/science/article/pii/S1389128626004068">Paper</a><span class="sep">|</span><a href="https://doi.org/10.1016/j.comnet.2026.112394">DOI</a><span class="sep">|</span><button type="button" data-bib="bib-autoguard" aria-expanded="false" aria-controls="bib-autoguard">BibTeX</button>
