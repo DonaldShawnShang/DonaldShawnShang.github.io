@@ -9,7 +9,7 @@ index.html                 page content (English + Chinese)
 assets/css/style.css       styles; colour tokens for light / dark at the top
 assets/img/                avatar, favicon, paper overview figures
 assets/cv/                 public CV (PDF)
-assets/fonts/              self-hosted Source Sans 3 (SIL OFL)
+assets/fonts/              self-hosted Plus Jakarta Sans (SIL OFL)
 ```
 
 - **Bilingual**: every visible text has an English `<span class="en">` and a Chinese `<span class="zh">` twin; the 中文/EN button switches between them. Add both when editing.
