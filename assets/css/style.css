@@ -78,11 +78,6 @@
   --maxw: 1180px;
 }
 
-/* ---------- language switching ---------- */
-
-html:not([data-lang="zh"]) .zh,
-html[data-lang="zh"] .en { display: none !important; }
-
 /* ---------- base ---------- */
 
 *,
@@ -105,7 +100,7 @@ body {
   -webkit-font-smoothing: antialiased;
   transition: background-color .2s ease, color .2s ease;
 }
-html[data-lang="zh"] body { font-size: 16px; line-height: 1.8; }
+html:lang(zh) body { line-height: 1.8; }
 
 a {
   color: var(--accent);
@@ -203,7 +198,7 @@ strong, b { font-weight: 600; color: var(--heading); }
   cursor: pointer;
   transition: border-color .15s ease, color .15s ease, background .15s ease;
 }
-.toggle:hover { border-color: var(--accent); color: var(--accent); }
+.toggle:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
 .toggle .icon { width: 15px; height: 15px; }
 /* show the moon in light mode and the sun in dark mode */
 .toggle .i-sun { display: none; }
@@ -366,6 +361,7 @@ main > section:last-child { margin-bottom: 0; }
 .paper-box-text { min-width: 0; }
 .paper-title {
   margin: 0 0 4px;
+  color: var(--heading);
   font-size: 1.05rem;
   line-height: 1.45;
   font-weight: 600;
@@ -435,9 +431,12 @@ main > section:last-child { margin-bottom: 0; }
 }
 .bibtex .copy:hover { color: var(--accent); border-color: var(--accent); }
 
-.patents { margin: 0; padding-left: 1.3em; }
-.patents li { margin-bottom: 10px; }
-.patents .meta { display: block; color: var(--muted); font-size: .95rem; }
+.patent-line {
+  margin: 16px 0 0;
+  color: var(--muted);
+  font-size: .92rem;
+}
+.patent-line b { color: var(--text); }
 
 /* ---------- footer ---------- */
 

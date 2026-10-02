@@ -5,17 +5,18 @@ Personal academic homepage of **Wentao (Donald) Shang (尚文韬)** — live at 
 Plain static HTML/CSS in the AcadHomepage style (no build step, no external CDNs, loads fast in mainland China).
 
 ```
-index.html                 page content (English + Chinese)
+index.html                 English page  (/)
+zh/index.html              Chinese page  (/zh/)
 assets/css/style.css       styles; colour tokens for light / dark at the top
+assets/js/main.js          theme toggle, BibTeX toggle/copy, nav highlight
+assets/img/icons.svg       icon sprite (Font Awesome Free 6.6.0, CC BY 4.0)
 assets/img/                avatar, favicon, paper overview figures
 assets/cv/                 public CV (PDF)
 assets/fonts/              self-hosted Plus Jakarta Sans (SIL OFL)
 ```
 
-- **Bilingual**: every visible text has an English `<span class="en">` and a Chinese `<span class="zh">` twin; the 中文/EN button switches between them. Add both when editing.
+- **Two languages, two pages**: keep `index.html` and `zh/index.html` in sync when editing content. Asset paths are root-absolute (`/assets/...`) so both pages share them.
 - **Theme**: follows the system light/dark setting; the moon/sun button overrides it (remembered per browser).
-- **Adding a paper**: copy a `<div class="paper-box">` block in `#publications`, put a ~960px-wide figure in `assets/img/`.
+- **Adding a paper**: copy an `<article class="paper-box">` block in `#publications` on both pages; put a ~960px-wide figure in `assets/img/`.
 
-Icons: Font Awesome Free 6.6.0 (CC BY 4.0), inlined as an SVG sprite in `index.html`.
-
-Preview locally with `python3 -m http.server`, then commit and push to `main`.
+Preview locally with `python3 -m http.server` from the repo root, then commit and push to `main`.
