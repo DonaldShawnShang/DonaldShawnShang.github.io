@@ -304,6 +304,21 @@ main > section:last-child { margin-bottom: 0; }
 .interests li { margin-bottom: 6px; }
 .interests li::marker { color: var(--accent); }
 
+.callout {
+  margin: 16px 0 0;
+  padding: 10px 14px;
+  background: var(--accent-soft);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 6px 6px 0;
+  color: var(--heading);
+}
+
+/* visitor map (footer) */
+.visitor-map {
+  max-width: 300px;
+  margin: 0 auto 32px;
+}
+
 /* dated bullet lists: news, honors, education, service */
 .dated {
   margin: 0;
