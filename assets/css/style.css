@@ -461,26 +461,11 @@ main > section:last-child { margin-bottom: 0; }
 
 /* ---------- prompt-injection demo ---------- */
 
-.demo-details { margin: 0 0 16px; }
-.demo-details > summary {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  color: var(--muted);
-  font-size: .9rem;
-  cursor: pointer;
-  list-style: none;
-  user-select: none;
+.page-single {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 40px 32px 24px;
 }
-.demo-details > summary::-webkit-details-marker { display: none; }
-.demo-details > summary::before {
-  content: "▸";
-  display: inline-block;
-  transition: transform .15s ease;
-}
-.demo-details[open] > summary::before { transform: rotate(90deg); }
-.demo-details > summary:hover { color: var(--accent); }
-.demo-details[open] > summary { margin-bottom: 12px; color: var(--heading); }
 .demo-intro { margin-bottom: 14px; font-size: .95rem; }
 .demo {
   padding: 16px;

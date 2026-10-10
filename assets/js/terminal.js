@@ -39,6 +39,7 @@
         '  contact         how to reach me',
         '  hire            start an internship email',
         '  cv              open the CV (PDF)',
+        '  demo            30-second prompt-injection demo',
         '  theme           toggle light / dark',
         '  lang            switch English / 中文',
         '  clear           clear the screen',
@@ -76,6 +77,7 @@
       return ['Great choice. Opening your mail client ...'];
     },
     cv: function () { window.open(CV, '_blank'); return ['Opening cv.pdf ...']; },
+    demo: function () { window.location.href = zhPage ? '/zh/demo/' : '/demo/'; return ['Opening the demo ...']; },
     theme: function () { document.getElementById('theme-toggle').click(); return ['Theme switched.']; },
     lang: function () { window.location.href = zhPage ? '/' : '/zh/'; return ['Switching language ...']; },
     sudo: function () { return ['visitor is not in the sudoers file. This incident will be reported.']; },
