@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AutoGuard 项目页 · 尚文韬</title>
+  <meta name="description" content="AutoGuard（Computer Networks 2026）：面向车载以太网的统一、轻量级跨层入侵检测。动画讲解、分词演示与主要结果。">
+  <meta name="color-scheme" content="light dark">
+  <link rel="canonical" href="https://donaldshawnshang.github.io/zh/autoguard/">
+  <link rel="alternate" hreflang="en" href="https://donaldshawnshang.github.io/autoguard/">
+  <link rel="alternate" hreflang="zh-CN" href="https://donaldshawnshang.github.io/zh/autoguard/">
+  <meta property="og:title" content="AutoGuard · Computer Networks 2026">
+  <meta property="og:description" content="AutoGuard（Computer Networks 2026）：面向车载以太网的统一、轻量级跨层入侵检测。动画讲解、分词演示与主要结果。">
+  <meta property="og:image" content="https://donaldshawnshang.github.io/assets/img/autoguard-overview.webp">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/assets/fonts/plus-jakarta-sans.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script>try { var t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) {}</script>
+</head>
+<body>
+  <header class="masthead">
+    <div class="masthead-inner">
+      <a class="site-title" href="/zh/">尚文韬 Wentao Shang</a>
+      <nav class="nav" aria-label="导航">
+        <a href="/zh/">← 返回主页</a>
+      </nav>
+      <div class="toggles">
+        <a class="toggle" href="/autoguard/" lang="en" hreflang="en">EN</a>
+        <button type="button" class="toggle" id="theme-toggle" aria-label="切换浅色 / 深色模式" title="切换浅色 / 深色模式">
+          <svg class="icon i-moon" aria-hidden="true"><use href="/assets/img/icons.svg#i-moon"/></svg>
+          <svg class="icon i-sun" aria-hidden="true"><use href="/assets/img/icons.svg#i-sun"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-single" id="main">
+
+    <header class="ag-head">
+      <p class="ag-kicker">项目页 · Computer Networks 2026</p>
+      <h1 class="ag-title">AutoGuard: Unified and Lightweight Cross-Layer Intrusion Detection for Automotive Ethernet via Contextual Traffic Analysis</h1>
+      <p class="paper-authors"><span class="me">Wentao Shang</span>, Shuyuan Jin, Weihong Han</p>
+      <p class="paper-venue"><a href="https://www.sciencedirect.com/journal/computer-networks"><i>Computer Networks</i></a> (Elsevier), Vol. 286, 112394, 2026<span class="tag">CCF-B</span></p>
+      <p class="paper-links">
+        <a href="https://www.sciencedirect.com/science/article/pii/S1389128626004068">Paper</a><span class="sep">|</span><a href="https://doi.org/10.1016/j.comnet.2026.112394">DOI</a><span class="sep">|</span><button type="button" data-bib="bib-autoguard" aria-expanded="false" aria-controls="bib-autoguard">BibTeX</button>
+      </p>
+      <div class="bibtex" id="bib-autoguard" hidden>
+        <button type="button" class="copy" data-done="已复制">复制</button>
+<pre>@article{shang2026autoguard,
+  title     = {AutoGuard: Unified and Lightweight Cross-Layer Intrusion Detection
+               for Automotive Ethernet via Contextual Traffic Analysis},
+  author    = {Shang, Wentao and Jin, Shuyuan and Han, Weihong},
+  journal   = {Computer Networks},
+  volume    = {286},
+  pages     = {112394},
+  year      = {2026},
+  publisher = {Elsevier},
+  doi       = {10.1016/j.comnet.2026.112394}
+}</pre>
+      </div>
+    </header>
+
+    <p class="ag-tldr"><b>简介：</b> 用一个字节级 Transformer 统一检测 TSN、CAN-over-UDP 与 SOME/IP 流量中的攻击，并蒸馏压缩约 90 倍（132M &rarr; 1.5M 参数）以便车载部署。</p>
+    <p class="ag-coverage">覆盖范围：TSN（AVTP/gPTP）、CAN-over-UDP 和 SOME/IP 上的 11 种攻击；合并数据集共 1,474,294 个标注样本。</p>
+
+    <section>
+      <h2 class="section-title"><span class="emoji" aria-hidden="true">🎬</span>AutoGuard 如何读懂流量</h2>
+      <div class="ag" data-ag>
+        <div class="ag-controls">
+          <div class="ag-scenarios" role="group" aria-label="示例窗口">
+            <button type="button" data-scenario="normal" aria-pressed="true">正常流量</button>
+            <button type="button" data-scenario="replay" aria-pressed="false">CAN-over-UDP 重放</button>
+            <button type="button" data-scenario="rwr" aria-pressed="false">SOME/IP 无请求响应</button>
+          </div>
+          <div class="ag-buttons">
+            <button type="button" class="ag-play" data-play>&#9654; 播放</button>
+            <button type="button" data-next>下一步</button>
+            <button type="button" data-reset>&#8634; 重置</button>
+          </div>
+        </div>
+        <ol class="ag-steps">
+          <li data-step-label="1">窗口</li>
+          <li data-step-label="2">载荷</li>
+          <li data-step-label="3">分词</li>
+          <li data-step-label="4">编码</li>
+          <li data-step-label="5">判定</li>
+        </ol>
+        <p class="ag-caption" aria-live="polite" data-caption></p>
+        <div hidden>
+          <span data-cap>选择一个示例窗口，点击"播放"；也可以点"下一步"逐个阶段查看。</span>
+          <span data-cap>宽度 w = 5 的窗口在混合车载流量上逐包滑动（步长为 1）。AutoGuard 对每个窗口做一次判断。</span>
+          <span data-cap>去掉各层协议头，每个包只保留传输层载荷。这些载荷按时间顺序拼接成一条字节序列，长度上限为 L_max 字节。</span>
+          <span data-cap>每两个相邻字节组成一个词元：重叠的字节二元组，写成 4 位十六进制。不需要针对协议设计特征。</span>
+          <span data-cap>词元序列加上 [CLS] … [SEP]，送入预训练的 12 层 Transformer 编码器。[CLS] 位置的输出概括整个窗口。</span>
+          <span data-cap>浅层分类头根据 [CLS] 向量给出判断：正常还是攻击，以及属于 11 种攻击中的哪一种。</span>
+        </div>
+
+        <div class="ag-stage" data-row="1">
+          <div class="ag-row-label">① 滑动窗口</div>
+          <div class="ag-track" data-track></div>
+        </div>
+        <div class="ag-stage" data-row="2">
+          <div class="ag-row-label">② 载荷提取</div>
+          <div>
+            <div class="ag-packets" data-packets></div>
+            <div class="ag-bytes" data-bytes></div>
+            <div class="ag-count" data-bytes-count></div>
+          </div>
+        </div>
+        <div class="ag-stage" data-row="3">
+          <div class="ag-row-label">③ 十六进制双字节分词</div>
+          <div>
+            <div class="ag-tokens" data-tokens></div>
+            <div class="ag-count" data-tok-count></div>
+          </div>
+        </div>
+        <div class="ag-stage" data-row="4">
+          <div class="ag-row-label">④ Transformer 编码器</div>
+          <div class="ag-enc">
+            <span class="ag-seq" data-seq></span>
+            <span class="ag-arrow" aria-hidden="true">&rarr;</span>
+            <span class="ag-layers" data-layers aria-hidden="true"></span>
+            <span class="ag-layers-cap">12 层 · 12 个注意力头 · d = 768</span>
+            <span class="ag-arrow" aria-hidden="true">&rarr;</span>
+            <span class="ag-h" data-h><i>h</i> = [CLS]</span>
+          </div>
+        </div>
+        <div class="ag-stage" data-row="5">
+          <div class="ag-row-label">⑤ 判定</div>
+          <div class="ag-dec">
+            <div class="ag-dec-row">
+              <span class="ag-dec-label">二分类</span>
+              <span class="ag-pill" data-bin="normal">正常</span>
+              <span class="ag-pill" data-bin="attack">攻击</span>
+            </div>
+            <div class="ag-dec-row">
+              <span class="ag-dec-label">多分类</span>
+              <span class="ag-dec-row" data-classes></span>
+            </div>
+            <p class="ag-evidence-note" data-evidence-note hidden>红框：暴露这个窗口异常的数据包（仅为示意）。</p>
+          </div>
+        </div>
+        <p class="ag-note">仅为示意。数据包字节是编写的示例，显示的判定是示例窗口的标签，不是实时模型的输出。AutoGuard 从原始字节中学习这类模式，不使用上面这种人工规则。</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title"><span class="emoji" aria-hidden="true">🔤</span>动手试试分词</h2>
+      <div class="ag-lab" data-tok>
+        <label for="ag-hex">输入或粘贴十六进制字节，词元会实时更新。</label>
+        <input id="ag-hex" type="text" value="12 34 00 01 01 01 80 00" spellcheck="false" autocomplete="off" autocapitalize="off" data-tok-input>
+        <div class="ag-tokens" data-tok-out aria-live="polite"></div>
+        <p class="ag-tok-msg" data-tok-msg></p>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title"><span class="emoji" aria-hidden="true">🗺️</span>完整流程</h2>
+      <a class="ag-figure" href="/assets/img/autoguard-overview.webp" target="_blank" rel="noopener">
+        <img src="/assets/img/autoguard-overview.webp" width="2400" height="1093" loading="lazy" alt="AutoGuard 流程总览：通用数据表示、预训练编码器、下游微调。">
+      </a>
+      <p class="ag-figcap">论文图 4：(1) 通用数据表示，(2) 预训练编码器，(3) 面向二分类检测与多分类归因的微调。点击查看大图。</p>
+    </section>
+
+    <section>
+      <h2 class="section-title"><span class="emoji" aria-hidden="true">📊</span>主要结果</h2>
+      <div class="ag-results">
+          <div class="ag-result">
+            <div class="num">0.9922</div>
+            <div class="what">二分类 F1（TOW-IDS）</div>
+            <p>在公开的车载以太网数据集 TOW-IDS 上，准确率 0.9959，召回率 0.9926。</p>
+            <p class="def">F1 兼顾精确率（报警中真正是攻击的比例）和召回率（攻击被抓到的比例），满分为 1。</p>
+          </div>
+          <div class="ag-result">
+            <div class="num">6.25 ms</div>
+            <div class="what">每次判断的响应时间</div>
+            <p>只需 5 个包即可判断：推理 3.40 ms，加上等待数据包 2.85 ms。对比方法使用 45 到 2048 个包、或 100 ms 流量的窗口。</p>
+            <p class="def">响应时间：从数据包到达到给出有效判断所用的时间（缓冲 + 推理），在论文的评测环境中测得。</p>
+          </div>
+          <div class="ag-result">
+            <div class="num">90.5&times;</div>
+            <div class="what">更小的学生模型</div>
+            <p>通过蒸馏，参数量从 132.13M 降到 1.46M。代价：在合并数据集上，二分类 F1 从 0.9821 降到 0.9275。</p>
+            <p class="def">参数量衡量模型大小。学生模型面向资源受限的车载硬件。</p>
+          </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <span>&copy; 2026 尚文韬</span>
+    <span><a href="/zh/">← 返回主页</a></span>
+  </footer>
+
+  <script src="/assets/js/main.js" defer></script>
+  <script src="/assets/js/autoguard.js" defer></script>
+</body>
+</html>

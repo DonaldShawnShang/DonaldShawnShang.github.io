@@ -60,7 +60,8 @@
         '[J1] AutoGuard: Unified and Lightweight Cross-Layer Intrusion Detection',
         '     for Automotive Ethernet via Contextual Traffic Analysis',
         '     W. Shang, S. Jin, W. Han. Computer Networks 286, 112394 (2026)',
-        '     https://doi.org/10.1016/j.comnet.2026.112394'
+        '     https://doi.org/10.1016/j.comnet.2026.112394',
+        '     project page: ' + (zhPage ? '/zh/autoguard/' : '/autoguard/')
       ];
     },
     honors: function () {

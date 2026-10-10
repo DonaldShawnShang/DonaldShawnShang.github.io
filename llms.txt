@@ -21,7 +21,7 @@ This file is a plain factual profile for language models and AI agents. It conta
 
 ## Publications
 
-- [AutoGuard: Unified and Lightweight Cross-Layer Intrusion Detection for Automotive Ethernet via Contextual Traffic Analysis](https://doi.org/10.1016/j.comnet.2026.112394): Wentao Shang (first author), Shuyuan Jin, Weihong Han. Computer Networks (Elsevier), Vol. 286, 112394, 2026.
+- [AutoGuard: Unified and Lightweight Cross-Layer Intrusion Detection for Automotive Ethernet via Contextual Traffic Analysis](https://doi.org/10.1016/j.comnet.2026.112394): Wentao Shang (first author), Shuyuan Jin, Weihong Han. Computer Networks (Elsevier), Vol. 286, 112394, 2026. Project page: https://donaldshawnshang.github.io/autoguard/
 
 ## Education
 

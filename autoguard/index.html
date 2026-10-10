@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AutoGuard · Project page · Wentao (Donald) Shang</title>
+  <meta name="description" content="AutoGuard (Computer Networks 2026): unified, lightweight cross-layer intrusion detection for Automotive Ethernet. Animated walkthrough, tokenizer playground and key results.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="canonical" href="https://donaldshawnshang.github.io/autoguard/">
+  <link rel="alternate" hreflang="en" href="https://donaldshawnshang.github.io/autoguard/">
+  <link rel="alternate" hreflang="zh-CN" href="https://donaldshawnshang.github.io/zh/autoguard/">
+  <meta property="og:title" content="AutoGuard · Computer Networks 2026">
+  <meta property="og:description" content="AutoGuard (Computer Networks 2026): unified, lightweight cross-layer intrusion detection for Automotive Ethernet. Animated walkthrough, tokenizer playground and key results.">
+  <meta property="og:image" content="https://donaldshawnshang.github.io/assets/img/autoguard-overview.webp">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/assets/fonts/plus-jakarta-sans.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script>try { var t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) {}</script>
+</head>
+<body>
+  <header class="masthead">
+    <div class="masthead-inner">
+      <a class="site-title" href="/">Wentao (Donald) Shang</a>
+      <nav class="nav" aria-label="Navigation">
+        <a href="/">← Back to homepage</a>
+      </nav>
+      <div class="toggles">
+        <a class="toggle" href="/zh/autoguard/" lang="zh-CN" hreflang="zh-CN">中文</a>
+        <button type="button" class="toggle" id="theme-toggle" aria-label="Toggle light / dark mode" title="Toggle light / dark mode">
+          <svg class="icon i-moon" aria-hidden="true"><use href="/assets/img/icons.svg#i-moon"/></svg>
+          <svg class="icon i-sun" aria-hidden="true"><use href="/assets/img/icons.svg#i-sun"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-single" id="main">
+
+    <header class="ag-head">
+      <p class="ag-kicker">Project page · Computer Networks 2026</p>
+      <h1 class="ag-title">AutoGuard: Unified and Lightweight Cross-Layer Intrusion Detection for Automotive Ethernet via Contextual Traffic Analysis</h1>
+      <p class="paper-authors"><span class="me">Wentao Shang</span>, Shuyuan Jin, Weihong Han</p>
+      <p class="paper-venue"><a href="https://www.sciencedirect.com/journal/computer-networks"><i>Computer Networks</i></a> (Elsevier), Vol. 286, 112394, 2026<span class="tag">CCF-B</span></p>
+      <p class="paper-links">
+        <a href="https://www.sciencedirect.com/science/article/pii/S1389128626004068">Paper</a><span class="sep">|</span><a href="https://doi.org/10.1016/j.comnet.2026.112394">DOI</a><span class="sep">|</span><button type="button" data-bib="bib-autoguard" aria-expanded="false" aria-controls="bib-autoguard">BibTeX</button>
+      </p>
+      <div class="bibtex" id="bib-autoguard" hidden>
+        <button type="button" class="copy" data-done="Copied">Copy</button>
+<pre>@article{shang2026autoguard,
+  title     = {AutoGuard: Unified and Lightweight Cross-Layer Intrusion Detection
+               for Automotive Ethernet via Contextual Traffic Analysis},
+  author    = {Shang, Wentao and Jin, Shuyuan and Han, Weihong},
+  journal   = {Computer Networks},
+  volume    = {286},
+  pages     = {112394},
+  year      = {2026},
+  publisher = {Elsevier},
+  doi       = {10.1016/j.comnet.2026.112394}
+}</pre>
+      </div>
+    </header>
+
+    <p class="ag-tldr"><b>TL;DR</b> One byte-level Transformer detects attacks across TSN, CAN-over-UDP and SOME/IP traffic, then is distilled ~90&times; (132M &rarr; 1.5M parameters) for in-vehicle deployment.</p>
+    <p class="ag-coverage">Coverage: 11 attack types across TSN (AVTP/gPTP), CAN-over-UDP and SOME/IP; 1,474,294 labeled samples in the combined dataset.</p>
+
+    <section>
+      <h2 class="section-title"><span class="emoji" aria-hidden="true">🎬</span>How AutoGuard reads traffic</h2>
+      <div class="ag" data-ag>
+        <div class="ag-controls">
+          <div class="ag-scenarios" role="group" aria-label="Example window">
+            <button type="button" data-scenario="normal" aria-pressed="true">Normal traffic</button>
+            <button type="button" data-scenario="replay" aria-pressed="false">CAN-over-UDP replay</button>
+            <button type="button" data-scenario="rwr" aria-pressed="false">SOME/IP response without request</button>
+          </div>
+          <div class="ag-buttons">
+            <button type="button" class="ag-play" data-play>&#9654; Play</button>
+            <button type="button" data-next>Next step</button>
+            <button type="button" data-reset>&#8634; Reset</button>
+          </div>
+        </div>
+        <ol class="ag-steps">
+          <li data-step-label="1">Window</li>
+          <li data-step-label="2">Payload</li>
+          <li data-step-label="3">Tokens</li>
+          <li data-step-label="4">Encoder</li>
+          <li data-step-label="5">Decision</li>
+        </ol>
+        <p class="ag-caption" aria-live="polite" data-caption></p>
+        <div hidden>
+          <span data-cap>Pick an example window, then press Play, or use Next step to go one stage at a time.</span>
+          <span data-cap>A window of w = 5 consecutive packets slides over mixed in-vehicle traffic (stride 1). AutoGuard makes one decision per window.</span>
+          <span data-cap>Protocol headers are dropped and each packet keeps its transport-layer payload. The payloads are joined in time order into one byte sequence, capped at L_max bytes.</span>
+          <span data-cap>Every two neighbouring bytes become one token: overlapping byte pairs, written as four hex digits. No protocol-specific features are needed.</span>
+          <span data-cap>The tokens, wrapped in [CLS] … [SEP], pass through a pre-trained 12-layer Transformer encoder. The output at [CLS] summarises the whole window.</span>
+          <span data-cap>A shallow head turns the [CLS] vector into the decision: Normal or Attack, and which of the 11 attack types.</span>
+        </div>
+
+        <div class="ag-stage" data-row="1">
+          <div class="ag-row-label">① Sliding window</div>
+          <div class="ag-track" data-track></div>
+        </div>
+        <div class="ag-stage" data-row="2">
+          <div class="ag-row-label">② Payload extraction</div>
+          <div>
+            <div class="ag-packets" data-packets></div>
+            <div class="ag-bytes" data-bytes></div>
+            <div class="ag-count" data-bytes-count></div>
+          </div>
+        </div>
+        <div class="ag-stage" data-row="3">
+          <div class="ag-row-label">③ Hex-bigram tokens</div>
+          <div>
+            <div class="ag-tokens" data-tokens></div>
+            <div class="ag-count" data-tok-count></div>
+          </div>
+        </div>
+        <div class="ag-stage" data-row="4">
+          <div class="ag-row-label">④ Transformer encoder</div>
+          <div class="ag-enc">
+            <span class="ag-seq" data-seq></span>
+            <span class="ag-arrow" aria-hidden="true">&rarr;</span>
+            <span class="ag-layers" data-layers aria-hidden="true"></span>
+            <span class="ag-layers-cap">12 layers · 12 heads · d = 768</span>
+            <span class="ag-arrow" aria-hidden="true">&rarr;</span>
+            <span class="ag-h" data-h><i>h</i> = [CLS]</span>
+          </div>
+        </div>
+        <div class="ag-stage" data-row="5">
+          <div class="ag-row-label">⑤ Decision</div>
+          <div class="ag-dec">
+            <div class="ag-dec-row">
+              <span class="ag-dec-label">Binary</span>
+              <span class="ag-pill" data-bin="normal">Normal</span>
+              <span class="ag-pill" data-bin="attack">Attack</span>
+            </div>
+            <div class="ag-dec-row">
+              <span class="ag-dec-label">Multi-class</span>
+              <span class="ag-dec-row" data-classes></span>
+            </div>
+            <p class="ag-evidence-note" data-evidence-note hidden>Red outline: the packets that give this window away (added for illustration).</p>
+          </div>
+        </div>
+        <p class="ag-note">Illustration only. The packet bytes are made up, and the decision shown is the label of the example window, not the output of a live model. AutoGuard learns such patterns from raw bytes; it does not use hand-written rules like the highlights above.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title"><span class="emoji" aria-hidden="true">🔤</span>Try the tokenizer</h2>
+      <div class="ag-lab" data-tok>
+        <label for="ag-hex">Type or paste hex bytes. Tokens update as you type.</label>
+        <input id="ag-hex" type="text" value="12 34 00 01 01 01 80 00" spellcheck="false" autocomplete="off" autocapitalize="off" data-tok-input>
+        <div class="ag-tokens" data-tok-out aria-live="polite"></div>
+        <p class="ag-tok-msg" data-tok-msg></p>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title"><span class="emoji" aria-hidden="true">🗺️</span>Full pipeline</h2>
+      <a class="ag-figure" href="/assets/img/autoguard-overview.webp" target="_blank" rel="noopener">
+        <img src="/assets/img/autoguard-overview.webp" width="2400" height="1093" loading="lazy" alt="AutoGuard pipeline overview: universal data representation, pre-trained encoder, downstream fine-tuning.">
+      </a>
+      <p class="ag-figcap">Fig. 4 of the paper: (1) universal data representation, (2) pre-trained encoder, (3) fine-tuning for binary detection and multi-class attribution. Click to enlarge.</p>
+    </section>
+
+    <section>
+      <h2 class="section-title"><span class="emoji" aria-hidden="true">📊</span>Key results</h2>
+      <div class="ag-results">
+          <div class="ag-result">
+            <div class="num">0.9922</div>
+            <div class="what">F1, binary detection (TOW-IDS)</div>
+            <p>Accuracy 0.9959 and recall 0.9926 on the public TOW-IDS Automotive Ethernet dataset.</p>
+            <p class="def">F1 balances precision (how many alerts are real attacks) and recall (how many attacks are caught). 1.0 is perfect.</p>
+          </div>
+          <div class="ag-result">
+            <div class="num">6.25 ms</div>
+            <div class="what">Response time per decision</div>
+            <p>A decision needs only 5 packets: 3.40 ms inference plus 2.85 ms waiting for packets. The compared methods use windows of 45 to 2,048 packets, or 100 ms of traffic.</p>
+            <p class="def">Response time is measured from packet arrival to a valid decision (buffering + inference), in the paper’s evaluation setup.</p>
+          </div>
+          <div class="ag-result">
+            <div class="num">90.5&times;</div>
+            <div class="what">Smaller student model</div>
+            <p>Distillation shrinks the model from 132.13M to 1.46M parameters. The cost: binary F1 on the combined dataset drops from 0.9821 to 0.9275.</p>
+            <p class="def">Parameter count measures model size. The student targets resource-constrained in-vehicle hardware.</p>
+          </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <span>&copy; 2026 Wentao (Donald) Shang</span>
+    <span><a href="/">← Back to homepage</a></span>
+  </footer>
+
+  <script src="/assets/js/main.js" defer></script>
+  <script src="/assets/js/autoguard.js" defer></script>
+</body>
+</html>

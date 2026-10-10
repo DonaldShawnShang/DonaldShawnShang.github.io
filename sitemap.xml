@@ -10,4 +10,14 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://donaldshawnshang.github.io/"/>
     <lastmod>2026-10-10</lastmod>
   </url>
+  <url>
+    <loc>https://donaldshawnshang.github.io/autoguard/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://donaldshawnshang.github.io/zh/autoguard/"/>
+    <lastmod>2026-10-10</lastmod>
+  </url>
+  <url>
+    <loc>https://donaldshawnshang.github.io/zh/autoguard/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://donaldshawnshang.github.io/autoguard/"/>
+    <lastmod>2026-10-10</lastmod>
+  </url>
 </urlset>
