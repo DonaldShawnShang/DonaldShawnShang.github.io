@@ -1,0 +1,11 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Shang;Wentao;;;
+FN:Wentao (Donald) Shang
+NICKNAME:Donald
+ORG:Sun Yat-sen University;School of Computer Science and Engineering
+TITLE:Doctoral Student (D.Eng.)
+EMAIL;TYPE=INTERNET,PREF:shangwentao3@outlook.com
+URL:https://donaldshawnshang.github.io/
+NOTE:AI security and LLM agent security. Open to research internships.
+END:VCARD

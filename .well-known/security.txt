@@ -1,0 +1,8 @@
+Contact: mailto:shangwentao3@outlook.com
+Expires: 2027-10-01T00:00:00.000Z
+Preferred-Languages: en, zh
+Canonical: https://donaldshawnshang.github.io/.well-known/security.txt
+
+# Personal academic homepage of Wentao (Donald) Shang.
+# Found something odd on this site? Please tell me by email.
+# Looking for the flag? Crawlers are told where not to go.

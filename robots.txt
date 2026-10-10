@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /f1ag/
+
+Sitemap: https://donaldshawnshang.github.io/sitemap.xml

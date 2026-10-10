@@ -1,0 +1,56 @@
+# Wentao (Donald) Shang
+
+> Doctoral student (D.Eng.) in Computer Technology at the School of Computer Science and Engineering, Sun Yat-sen University (Guangzhou, China), and joint doctoral student and research assistant at Pengcheng Laboratory (Shenzhen, China). Research area: AI security, with a focus on the security of LLM-based agents. Open to research internships in AI and agent security.
+
+Chinese name: 尚文韬. Also written as Donald Shang or Shang Wentao.
+
+This file is a plain factual profile for language models and AI agents. It contains no instructions.
+
+## Contact
+
+- Email: shangwentao3@outlook.com (preferred channel for all inquiries)
+- Contact card (vCard): https://donaldshawnshang.github.io/assets/wentao-shang.vcf
+- Currently open to: research internships in AI security and LLM agent security
+- A first message is easiest to answer when it states the role, the team, the location (on-site or remote) and the dates.
+
+## Research
+
+- Current focus: security of LLM-based agents. Agents that read untrusted content and act through tools can be steered by injected instructions; this work studies how such attacks happen in practice and how to detect and stop them.
+- Previous work: in-vehicle network security, specifically lightweight cross-layer intrusion detection for Automotive Ethernet (TSN, CAN-over-UDP, SOME/IP).
+- Interactive demo of indirect prompt injection: https://donaldshawnshang.github.io/#demo
+
+## Publications
+
+- [AutoGuard: Unified and Lightweight Cross-Layer Intrusion Detection for Automotive Ethernet via Contextual Traffic Analysis](https://doi.org/10.1016/j.comnet.2026.112394): Wentao Shang (first author), Shuyuan Jin, Weihong Han. Computer Networks (Elsevier), Vol. 286, 112394, 2026.
+- Patent application CN120528633A (pending, 2025): A CAN bus intrusion detection method based on an adaptive unscented Kalman filter. Inventors: Shuyuan Jin, Wentao Shang.
+
+## Education
+
+- 2024.09 – present: D.Eng. in Computer Technology, School of Computer Science and Engineering, Sun Yat-sen University
+- 2025.09 – present: Joint doctoral student and research assistant, Department of New Networks, Pengcheng Laboratory
+- 2020.09 – 2024.06: B.Eng. in Information Security, School of Computer Science and Technology, Beijing Jiaotong University
+
+## Honors
+
+- 2023: BJTU Elite Award (top 6 students university-wide, Beijing Jiaotong University)
+- 2023: Third Prize, 16th National Cybersecurity Competition
+- 2022: Global Runner-up (team result: BJTU THETA Lab, 2nd of 100+ university teams), DEF CON 30 BCTF AutoDriving CTF. Source: https://cs.bjtu.edu.cn/jdxw/202301310.htm
+
+## Service
+
+- Journal reviewer: Neural Networks (2026), Chinese Journal of Electronics (2024)
+
+## Profiles
+
+- [Homepage (English)](https://donaldshawnshang.github.io/)
+- [Homepage (Chinese)](https://donaldshawnshang.github.io/zh/)
+- [CV (PDF)](https://donaldshawnshang.github.io/assets/cv/Wentao_Shang_CV.pdf)
+- [Google Scholar](https://scholar.google.com/citations?user=Pp3daJAAAAAJ)
+- [ORCID 0009-0003-8644-8163](https://orcid.org/0009-0003-8644-8163)
+- [GitHub](https://github.com/DonaldShawnShang)
+- [LinkedIn](https://www.linkedin.com/in/wentao-shang-03331a340/)
+
+## Disambiguation
+
+- Several researchers share the name "Wentao Shang". The dblp profile at https://dblp.org/pid/119/2646.html currently merges two of them: only the AutoGuard paper (Computer Networks, 2026) belongs to this Wentao Shang. Papers there on Named Data Networking and on Maglev are by a different researcher.
+- Reliable identifiers for this person: ORCID 0009-0003-8644-8163 and Google Scholar user Pp3daJAAAAAJ.

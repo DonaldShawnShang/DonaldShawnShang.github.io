@@ -47,3 +47,19 @@
     document.querySelectorAll('main > section[id]').forEach(function (s) { io.observe(s); });
   }
 })();
+
+// Console greeting for people who open DevTools
+(function () {
+  var banner = window.WENTAO_BANNER = "__        __              _\n\\ \\      / /  ___  _ __  | |_   __ _   ___\n \\ \\ /\\ / /  / _ \\| '_ \\ | __| / _` | / _ \\\n  \\ V  V /  |  __/| | | || |_ | (_| || (_) |\n   \\_/\\_/    \\___||_| |_| \\__| \\__,_| \\___/";
+  try {
+    console.log('%c' + banner, 'font-family: ui-monospace, Menlo, monospace; color: #1b5fad; font-weight: bold;');
+    console.log(
+      '%cHi there. You opened the console, so you probably like looking under the hood.\n' +
+      'I study how AI agents get hijacked, and I am looking for research internships in AI & agent security.\n' +
+      'Say hi: shangwentao3@outlook.com\n\n' +
+      '你好！我研究 AI Agent 如何被劫持，正在寻找 AI / 智能体安全方向的研究实习。\n\n' +
+      'P.S. A flag is hidden on this site. Crawlers know where not to go.  /  本站藏了一个 flag。',
+      'font-family: ui-monospace, Menlo, monospace; line-height: 1.6;'
+    );
+  } catch (e) {}
+})();
