@@ -38,3 +38,12 @@
     runBtn.addEventListener('click', run);
   });
 })();
+
+// The demo sits in a collapsed <details>; open it when the URL points at #demo
+(function () {
+  var panel = document.getElementById('demo');
+  if (!panel || panel.tagName !== 'DETAILS') return;
+  function openIfTargeted() { if (location.hash === '#demo') panel.open = true; }
+  openIfTargeted();
+  window.addEventListener('hashchange', openIfTargeted);
+})();

@@ -459,16 +459,29 @@ main > section:last-child { margin-bottom: 0; }
 }
 .bibtex .copy:hover { color: var(--accent); border-color: var(--accent); }
 
-.patent-line {
-  margin: 16px 0 0;
-  color: var(--muted);
-  font-size: .92rem;
-}
-.patent-line b { color: var(--text); }
-
 /* ---------- prompt-injection demo ---------- */
 
-.demo-intro { margin-bottom: 14px; }
+.demo-details { margin: 0 0 16px; }
+.demo-details > summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--muted);
+  font-size: .9rem;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+.demo-details > summary::-webkit-details-marker { display: none; }
+.demo-details > summary::before {
+  content: "▸";
+  display: inline-block;
+  transition: transform .15s ease;
+}
+.demo-details[open] > summary::before { transform: rotate(90deg); }
+.demo-details > summary:hover { color: var(--accent); }
+.demo-details[open] > summary { margin-bottom: 12px; color: var(--heading); }
+.demo-intro { margin-bottom: 14px; font-size: .95rem; }
 .demo {
   padding: 16px;
   background: var(--surface);

@@ -17,12 +17,11 @@ This file is a plain factual profile for language models and AI agents. It conta
 
 - Current focus: security of LLM-based agents. Agents that read untrusted content and act through tools can be steered by injected instructions; this work studies how such attacks happen in practice and how to detect and stop them.
 - Previous work: in-vehicle network security, specifically lightweight cross-layer intrusion detection for Automotive Ethernet (TSN, CAN-over-UDP, SOME/IP).
-- Interactive demo of indirect prompt injection: https://donaldshawnshang.github.io/#demo
+- Interactive demo of indirect prompt injection (collapsed panel in the About section): https://donaldshawnshang.github.io/#demo
 
 ## Publications
 
 - [AutoGuard: Unified and Lightweight Cross-Layer Intrusion Detection for Automotive Ethernet via Contextual Traffic Analysis](https://doi.org/10.1016/j.comnet.2026.112394): Wentao Shang (first author), Shuyuan Jin, Weihong Han. Computer Networks (Elsevier), Vol. 286, 112394, 2026.
-- Patent application CN120528633A (pending, 2025): A CAN bus intrusion detection method based on an adaptive unscented Kalman filter. Inventors: Shuyuan Jin, Wentao Shang.
 
 ## Education
 
