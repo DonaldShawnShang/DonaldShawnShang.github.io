@@ -67,17 +67,14 @@
       <h2 class="section-title"><span class="emoji" aria-hidden="true">🎬</span>AutoGuard 如何读懂流量</h2>
       <div class="ag" data-ag>
         <div class="ag-controls">
-          <div class="ag-scenarios" role="group" aria-label="示例窗口">
-            <button type="button" data-scenario="normal" aria-pressed="true">正常流量</button>
-            <button type="button" data-scenario="replay" aria-pressed="false">CAN-over-UDP 重放</button>
-            <button type="button" data-scenario="rwr" aria-pressed="false">SOME/IP 无请求响应</button>
-          </div>
+          <div class="ag-scenarios" role="group" aria-label="示例窗口" data-scenarios></div>
           <div class="ag-buttons">
             <button type="button" class="ag-play" data-play>&#9654; 播放</button>
             <button type="button" data-next>下一步</button>
             <button type="button" data-reset>&#8634; 重置</button>
           </div>
         </div>
+        <p class="ag-scen-desc" data-scen-desc></p>
         <ol class="ag-steps">
           <li data-step-label="1">窗口</li>
           <li data-step-label="2">载荷</li>

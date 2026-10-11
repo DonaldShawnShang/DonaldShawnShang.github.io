@@ -42,6 +42,7 @@
   --p-can: #cf222e; --p-can-bg: #ffebe9;
   --p-avtp: #0969da; --p-avtp-bg: #ddf4ff;
   --p-ptp: #8250df; --p-ptp-bg: #fbefff;
+  --p-eth: #bc4c00; --p-eth-bg: #fff1e5;
   color-scheme: light;
 }
 
@@ -67,6 +68,7 @@
     --p-can: #ff7b72; --p-can-bg: #3a1d1d;
     --p-avtp: #79c0ff; --p-avtp-bg: #15233a;
     --p-ptp: #d2a8ff; --p-ptp-bg: #2a1f3d;
+    --p-eth: #ffa657; --p-eth-bg: #3d2a12;
     color-scheme: dark;
   }
 }
@@ -91,6 +93,7 @@
   --p-can: #ff7b72; --p-can-bg: #3a1d1d;
   --p-avtp: #79c0ff; --p-avtp-bg: #15233a;
   --p-ptp: #d2a8ff; --p-ptp-bg: #2a1f3d;
+  --p-eth: #ffa657; --p-eth-bg: #3d2a12;
   color-scheme: dark;
 }
 
@@ -619,7 +622,19 @@ main > section:last-child { margin-bottom: 0; }
   gap: 10px;
   margin-bottom: 14px;
 }
-.ag-scenarios, .ag-buttons { display: flex; flex-wrap: wrap; gap: 6px; }
+.ag-buttons { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 6px; }
+.ag-scenarios { display: grid; gap: 6px; flex: 1 1 520px; min-width: 0; }
+.ag-scen-group { display: grid; grid-template-columns: 112px minmax(0, 1fr); align-items: start; gap: 6px; }
+.ag-scen-btns { display: flex; flex-wrap: wrap; gap: 6px; }
+.ag-scen-label { padding-top: 8px; color: var(--muted); font-size: .76rem; font-weight: 700; }
+.ag-scen-desc {
+  margin: 0 0 14px;
+  padding: 8px 12px;
+  background: var(--bg);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 6px 6px 0;
+  font-size: .9rem;
+}
 .ag button {
   padding: 7px 11px;
   border: 1px solid var(--rule);
@@ -681,6 +696,7 @@ main > section:last-child { margin-bottom: 0; }
 .ag-p-can  { --pc: var(--p-can);  --pb: var(--p-can-bg); }
 .ag-p-avtp { --pc: var(--p-avtp); --pb: var(--p-avtp-bg); }
 .ag-p-ptp  { --pc: var(--p-ptp);  --pb: var(--p-ptp-bg); }
+.ag-p-eth  { --pc: var(--p-eth);  --pb: var(--p-eth-bg); }
 
 /* ① traffic + sliding window */
 .ag-track {
@@ -990,6 +1006,9 @@ kbd {
   .paper-box { grid-template-columns: 1fr; gap: 14px; }
   .demo-panes { grid-template-columns: 1fr; }
   .ag-stage { grid-template-columns: 1fr; gap: 8px; }
+  .ag-scen-group { grid-template-columns: 1fr; gap: 4px; }
+  .ag-scen-label { padding-top: 4px; }
+  .ag-scen-label:empty { display: none; }
   .ag-results { grid-template-columns: 1fr; }
   .ag-steps li { font-size: .66rem; }
   .ag-chip { font-size: .5rem; padding: 8px 1px; }

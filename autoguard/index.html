@@ -67,17 +67,14 @@
       <h2 class="section-title"><span class="emoji" aria-hidden="true">🎬</span>How AutoGuard reads traffic</h2>
       <div class="ag" data-ag>
         <div class="ag-controls">
-          <div class="ag-scenarios" role="group" aria-label="Example window">
-            <button type="button" data-scenario="normal" aria-pressed="true">Normal traffic</button>
-            <button type="button" data-scenario="replay" aria-pressed="false">CAN-over-UDP replay</button>
-            <button type="button" data-scenario="rwr" aria-pressed="false">SOME/IP response without request</button>
-          </div>
+          <div class="ag-scenarios" role="group" aria-label="Example window" data-scenarios></div>
           <div class="ag-buttons">
             <button type="button" class="ag-play" data-play>&#9654; Play</button>
             <button type="button" data-next>Next step</button>
             <button type="button" data-reset>&#8634; Reset</button>
           </div>
         </div>
+        <p class="ag-scen-desc" data-scen-desc></p>
         <ol class="ag-steps">
           <li data-step-label="1">Window</li>
           <li data-step-label="2">Payload</li>
