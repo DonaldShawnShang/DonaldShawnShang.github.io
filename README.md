@@ -20,3 +20,18 @@ assets/fonts/              self-hosted Plus Jakarta Sans (SIL OFL)
 - **Adding a paper**: copy an `<article class="paper-box">` block in `#publications` on both pages; put a ~960px-wide figure in `assets/img/`.
 
 Preview locally with `python3 -m http.server` from the repo root, then commit and push to `main`.
+
+## Checks
+
+`scripts/check_site.py` runs on every push (GitHub Actions, `.github/workflows/site-check.yml`) and every Monday:
+
+- internal links, images and icon references exist; in-page anchors exist; HTML tags are balanced; JSON-LD parses
+- nothing published (pages, llms.txt, CV PDF) leaks under-review papers, a phone number, or other details the owner keeps off the site
+- the prompt-injection demo text never appears as plain text (only base64 inside `demo.js`)
+- English and Chinese pages have the same sections, item counts and external links
+- `llms.txt` matches the homepage (email, ORCID, DOI, paper titles) and its site links exist
+- `sitemap.xml`, `robots.txt` and `.well-known/security.txt` (fails when expired, warns 60 days ahead)
+- JavaScript parses; weekly: external links (lychee)
+
+Run locally before pushing: `python3 scripts/check_site.py`
+

@@ -1,0 +1,45 @@
+name: Site check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: '0 2 * * 1'   # every Monday 02:00 UTC (10:00 Beijing)
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  static:
+    name: Static checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install pdftotext (to scan the CV)
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils
+      - name: Links, privacy, injection text, EN/ZH pairs, llms.txt, site files
+        run: python3 scripts/check_site.py
+      - name: JavaScript syntax
+        run: for f in assets/js/*.js; do node --check "$f"; done
+
+  links:
+    name: External links (weekly)
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: lycheeverse/lychee-action@v2
+        with:
+          fail: true
+          args: >-
+            --no-progress
+            --scheme https --scheme http
+            --max-retries 3 --timeout 30
+            --accept 200,203,204,206,301,302,303,307,308,403,429
+            --exclude 'linkedin\.com'
+            --exclude '\.example(/|$)'
+            --exclude 'googletagmanager\.com'
+            --exclude 'mapmyvisitors\.com'
+            './**/*.html' llms.txt
