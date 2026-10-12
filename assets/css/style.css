@@ -939,9 +939,42 @@ html.term-open { overflow: hidden; }
 .term-out .term-echo { color: #7ee787; }
 .term-out .term-banner { white-space: pre; overflow-wrap: normal; color: #79b0ff; font-size: min(1em, 2.9vw); line-height: 1.25; }
 .term-line { display: flex; gap: 8px; align-items: baseline; }
+.term-field { position: relative; flex: 1; min-width: 0; }
+.term-ghost {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  white-space: pre;
+  font: inherit;
+  pointer-events: none;
+}
+.term-ghost-typed { visibility: hidden; }
+.term-ghost-rest { color: #6e7681; pointer-events: auto; cursor: pointer; }
+.term-out div.term-entries { display: flex; flex-wrap: wrap; gap: 4px 18px; }
+.term-entry {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #c9d1d9;
+  font: inherit;
+  cursor: pointer;
+}
+.term-entry:hover { color: #f0f6fc; text-decoration: underline; text-underline-offset: 3px; }
+.term-entry.is-dir { color: #79c0ff; font-weight: 700; }
+.term-entry.is-link { color: #d2a8ff; }
+.term-out .term-err { color: #ff7b72; }
+.term-out { user-select: text; }
+.term-hints {
+  padding: 7px 14px;
+  border-top: 1px solid #30363d;
+  background: #161b22;
+  color: #8b949e;
+  font: .72rem/1.4 var(--mono);
+}
 .term-prompt { color: #7ee787; white-space: nowrap; }
 .term-input {
-  flex: 1;
+  position: relative;
+  width: 100%;
   min-width: 0;
   padding: 0;
   border: 0;
