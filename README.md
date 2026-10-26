@@ -12,6 +12,7 @@ assets/js/main.js          theme toggle, BibTeX toggle/copy, nav highlight
 assets/img/icons.svg       icon sprite (Font Awesome Free 6.6.0, CC BY 4.0)
 assets/img/                avatar, favicon, paper overview figures
 assets/cv/                 public CV (PDF)
+assets/slides/             AutoGuard slides (PDF, Chinese)
 assets/fonts/              self-hosted Plus Jakarta Sans (SIL OFL)
 ```
 
