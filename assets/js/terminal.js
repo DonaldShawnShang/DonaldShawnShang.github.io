@@ -70,9 +70,11 @@
       if (q('.paper-venue')) lines.push(textWithTags(q('.paper-venue')));
       if (q('.paper-tldr')) lines.push('', clean(q('.paper-tldr').textContent));
       lines.push('');
-      box.querySelectorAll('.paper-links a').forEach(function (a) {
-        lines.push((clean(a.textContent) + ':').padEnd(10) + abs(a.getAttribute('href')));
+      var links = Array.prototype.map.call(box.querySelectorAll('.paper-links a'), function (a) {
+        return [clean(a.textContent) + ':', abs(a.getAttribute('href'))];
       });
+      var width = links.reduce(function (w, l) { return Math.max(w, l[0].length + 1); }, 0);
+      links.forEach(function (l) { lines.push(l[0].padEnd(width) + l[1]); });
       var bib = q('.bibtex pre');
       if (bib) {
         file(pubs, key + '.bib', bib.textContent.split('\n'));
@@ -96,7 +98,7 @@
   }
 
   var FS = null;
-  var cwd = [];
+  var cwd = [], prevCwd = [];
   var EMAIL = (function () {
     var a = document.querySelector('.profile-links a[href^="mailto:"]');
     return a ? a.getAttribute('href').slice(7) : 'shangwentao3@outlook.com';
@@ -116,6 +118,37 @@
       node = node.children[parts[i]];
     }
     return { node: node || null, parts: parts };
+  }
+
+  // every node in the tree with its path from ~
+  function allPaths() {
+    var list = [];
+    (function walk(node, parts) {
+      Object.keys(node.children).forEach(function (n) {
+        var child = node.children[n], p = parts.concat(n);
+        list.push({ node: child, parts: p });
+        if (child.type === 'dir') walk(child, p);
+      });
+    })(FS, []);
+    return list;
+  }
+
+  // Like resolve(), but a name that is not in the current directory is looked up in the
+  // whole tree, so `cat news.txt` also works from ~/publications.
+  function lookup(path) {
+    var r = resolve(path);
+    if (r.node || !path || path[0] === '~' || path[0] === '/') return r;
+    var want = path.split('/').filter(function (seg) { return seg && seg !== '.'; });
+    if (!want.length || want.indexOf('..') >= 0) return r;
+    var hits = allPaths().filter(function (e) { return e.parts.slice(-want.length).join('/') === want.join('/'); });
+    return hits.length === 1 ? { node: hits[0].node, parts: hits[0].parts } : r;
+  }
+
+  function basenames(dirsOnly) {
+    var seen = {};
+    return allPaths().filter(function (e) { return !dirsOnly || e.node.type === 'dir'; }).map(function (e) {
+      return e.parts[e.parts.length - 1] + (e.node.type === 'dir' ? '/' : '');
+    }).filter(function (n) { return seen[n] ? false : (seen[n] = true); });
   }
 
   function entries(dirNode, dirsOnly) {
@@ -151,23 +184,32 @@
     var parent = resolve(slash >= 0 ? arg.slice(0, slash) || '/' : '').node;
     var base = slash >= 0 ? arg.slice(slash + 1) : arg;
     var msg = [cmd + ': ' + arg + T(': No such file or directory', '：没有这个文件或目录')];
-    if (parent && parent.type === 'dir') {
-      var guess = closest(base, entries(parent));
-      if (guess) {
-        var full = (slash >= 0 ? arg.slice(0, slash + 1) : '') + guess;
-        msg.push(T('Did you mean `' + full + '`?', '你是不是想输入 `' + full + '`？'));
-      }
-    }
+    var guess = parent && parent.type === 'dir' ? closest(base, entries(parent)) : null;
+    var full = guess && (slash >= 0 ? arg.slice(0, slash + 1) : '') + guess;
+    if (!full && slash < 0) full = closest(base, basenames(cmd === 'cd'));
+    if (full) msg.push(T('Did you mean `' + cmd + ' ' + full + '`?', '你是不是想输入 `' + cmd + ' ' + full + '`？'));
     return msg;
   }
 
   // ---------- output ----------
-  var overlay, out, input, ghostTyped, ghostRest, promptEl, history = [], hIdx = 0, lastFocus;
+  var overlay, out, input, ghostTyped, ghostRest, promptEl, titleEl, history = [], hIdx = 0, lastFocus;
 
   function line(text, cls) {
     var div = document.createElement('div');
     if (cls) div.className = cls;
-    div.textContent = text === '' ? ' ' : text;
+    if (text === '') text = ' ';
+    // make URLs clickable
+    var re = /https?:\/\/[^\s)]+/g, last = 0, m;
+    while ((m = re.exec(text))) {
+      div.appendChild(document.createTextNode(text.slice(last, m.index)));
+      var a = document.createElement('a');
+      a.href = a.textContent = m[0];
+      a.target = '_blank';
+      a.rel = 'noopener';
+      div.appendChild(a);
+      last = m.index + m[0].length;
+    }
+    div.appendChild(document.createTextNode(text.slice(last)));
     out.appendChild(div);
     return div;
   }
@@ -182,7 +224,7 @@
     var div = document.createElement('div');
     div.className = 'term-entries';
     names.forEach(function (n) {
-      var node = resolve((base ? base + '/' : '') + n.replace(/\/$/, '')).node;
+      var node = lookup((base ? base + '/' : '') + n.replace(/\/$/, '')).node;
       var b = document.createElement('button');
       b.type = 'button';
       b.className = 'term-entry' + (node && node.type === 'dir' ? ' is-dir' : node && node.type !== 'file' ? ' is-link' : '');
@@ -203,6 +245,7 @@
   function setPrompt() {
     var p = 'visitor@wentao:' + pathStr(cwd) + '$';
     promptEl.textContent = p;
+    titleEl.textContent = 'visitor@wentao: ' + pathStr(cwd);
     return p;
   }
 
@@ -210,12 +253,15 @@
   var PATH_CMDS = { cat: 1, cd: 1, ls: 1, open: 1, copy: 1, tree: 1 };
 
   function contentOf(node) {
-    if (node.type === 'file' || node.type === 'link') return node.lines.join('\n');
-    return '';
+    if (node.type === 'link') return node.url;
+    return node.lines ? node.lines.join('\n') : '';
   }
 
-  function fetchText(url) {
-    return fetch(url).then(function (r) { if (!r.ok) throw new Error(r.status); return r.text(); });
+  // remote files (llms.txt) are fetched once when the terminal opens
+  function load(node) {
+    if (node.lines) return Promise.resolve(node.lines);
+    return fetch(node.url).then(function (r) { if (!r.ok) throw new Error(r.status); return r.text(); })
+      .then(function (t) { node.lines = t.replace(/\n$/, '').split('\n'); return node.lines; });
   }
 
   function copyText(text) {
@@ -250,7 +296,7 @@
     },
     ls: function (args) {
       var path = args.filter(function (a) { return a[0] !== '-'; })[0] || '';
-      var r = resolve(path);
+      var r = lookup(path);
       if (!r.node) return notFound('ls', path);
       if (r.node.type !== 'dir') return [path];
       printEntries(entries(r.node), r.parts.length ? pathStr(r.parts) : '');
@@ -258,10 +304,10 @@
     },
     cd: function (args) {
       var path = args[0] || '~';
-      if (path === '-') path = '~';
-      var r = resolve(path);
+      var r = path === '-' ? { node: resolve('~/' + prevCwd.join('/')).node, parts: prevCwd } : lookup(path);
       if (!r.node) return notFound('cd', path);
       if (r.node.type !== 'dir') return ['cd: ' + path + T(': Not a directory', '：不是目录')];
+      prevCwd = cwd;
       cwd = r.parts;
       setPrompt();
       return [];
@@ -271,18 +317,18 @@
       if (!args[0]) return [T('usage: cat <file>   (try: ls)', '用法：cat <文件>（先试试 ls）')];
       var path = args[0];
       if (/^f1?ag/i.test(path.replace(/.*\//, ''))) return ['cat: ' + path + T(': No such file. Real hackers read robots.txt.', '：没有这个文件。真正的黑客会去读 robots.txt。')];
-      var r = resolve(path);
+      var r = lookup(path);
       if (!r.node) return notFound('cat', path);
       if (r.node.type === 'dir') return ['cat: ' + path + T(': Is a directory. Try `ls ' + path + '` or `cd ' + path + '`.', '：这是一个目录。试试 `ls ' + path + '` 或 `cd ' + path + '`。')];
-      if (r.node.type === 'remote') return fetchText(r.node.url).then(function (t) { return t.replace(/\n$/, '').split('\n'); }, function () { return ['cat: ' + path + T(': could not load', '：加载失败')]; });
+      if (r.node.type === 'remote') return r.node.lines || load(r.node).catch(function () { return ['cat: ' + path + T(': could not load', '：加载失败')]; });
       if (r.node.url && /\.pdf$/.test(r.node.url)) { window.open(r.node.url, '_blank'); return [T('Opening ', '正在打开 ') + path + ' ...']; }
       return r.node.lines;
     },
     open: function (args) {
       if (!args[0]) return [T('usage: open <file>   e.g. open cv.pdf', '用法：open <文件>，例如 open cv.pdf')];
-      var r = resolve(args[0]);
+      var r = lookup(args[0]);
       if (!r.node) return notFound('open', args[0]);
-      if (r.node.type === 'dir') { cwd = r.parts; setPrompt(); return COMMANDS.ls([]); }
+      if (r.node.type === 'dir') { prevCwd = cwd; cwd = r.parts; setPrompt(); return COMMANDS.ls([]); }
       if (r.node.url) { window.open(r.node.url, '_blank'); return [T('Opening ', '正在打开 ') + r.node.url + ' ...']; }
       return r.node.lines;
     },
@@ -290,11 +336,11 @@
       var what = args[0];
       if (!what) return [T('usage: copy <file>   e.g. copy publications/autoguard.bib, copy email', '用法：copy <文件>，例如 copy publications/autoguard.bib 或 copy email')];
       if (what === 'email') return copyText(EMAIL);
-      var r = resolve(what);
+      var r = lookup(what);
       if (!r.node) return notFound('copy', what);
       if (r.node.type === 'dir') return ['copy: ' + what + T(': Is a directory', '：这是一个目录')];
-      if (r.node.type === 'remote') return fetchText(r.node.url).then(copyText);
-      return copyText(r.node.type === 'link' ? r.node.url : contentOf(r.node));
+      if (r.node.type === 'remote' && !r.node.lines) return load(r.node).then(function () { return copyText(contentOf(r.node)); });
+      return copyText(contentOf(r.node));
     },
     tree: function () {
       var lines = ['~'];
@@ -358,7 +404,8 @@
   // supports simple `a && b` chains (used by clickable directory names)
   function run(raw) {
     line(setPrompt() + ' ' + raw, 'term-echo');
-    if (raw.trim()) { history.push(raw.trim()); hIdx = history.length; }
+    if (raw.trim() && history[history.length - 1] !== raw.trim()) history.push(raw.trim());
+    hIdx = history.length;
     raw.split('&&').forEach(function (part) { exec(part); });
     setPrompt();
     scroll();
@@ -370,7 +417,7 @@
     if (space < 0) {
       return { head: '', token: value, list: Object.keys(COMMANDS).filter(function (c) { return c.indexOf(value) === 0; }), cmd: true };
     }
-    var cmd = value.split(/\s+/)[0];
+    var cmd = value.split(/\s+/)[0].toLowerCase();
     var token = value.slice(space + 1);
     var head = value.slice(0, space + 1);
     if (!PATH_CMDS[cmd]) return { head: head, token: token, list: [] };
@@ -380,6 +427,8 @@
     var parent = resolve(dirPart || '').node;
     if (!parent || parent.type !== 'dir') return { head: head, token: token, list: [] };
     var list = entries(parent, cmd === 'cd').filter(function (n) { return n.indexOf(base) === 0; });
+    // nothing here: offer names from other folders (lookup() finds them)
+    if (!list.length && !dirPart && base) list = basenames(cmd === 'cd').filter(function (n) { return n.indexOf(base) === 0; });
     if (cmd === 'copy' && !dirPart && 'email'.indexOf(base) === 0) list.push('email');
     return { head: head + dirPart, token: base, list: list, dir: dirPart };
   }
@@ -453,6 +502,7 @@
     out = overlay.querySelector('.term-out');
     input = overlay.querySelector('.term-input');
     promptEl = overlay.querySelector('.term-prompt');
+    titleEl = overlay.querySelector('.term-title');
     ghostTyped = overlay.querySelector('.term-ghost-typed');
     ghostRest = overlay.querySelector('.term-ghost-rest');
     overlay.querySelector('.term-close').addEventListener('click', close);
@@ -467,6 +517,7 @@
     input.addEventListener('input', updateGhost);
     input.addEventListener('click', updateGhost);
     input.addEventListener('keyup', function (e) { if (/^Arrow(Left|Right)|Home|End$/.test(e.key)) updateGhost(); });
+    allPaths().forEach(function (e) { if (e.node.type === 'remote') load(e.node).catch(function () {}); });
     setPrompt();
     if (window.WENTAO_BANNER) print(window.WENTAO_BANNER.split('\n'), 'term-banner');
     print([T('Welcome. Type `help` to see what you can do here, or start with `ls`.', '欢迎！输入 `help` 查看可用命令，或者先输入 `ls`。'), '']);

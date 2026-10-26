@@ -1185,6 +1185,8 @@ html.term-open { overflow: hidden; }
 .term-entry:hover { color: #f0f6fc; text-decoration: underline; text-underline-offset: 3px; }
 .term-entry.is-dir { color: #79c0ff; font-weight: 700; }
 .term-entry.is-link { color: #d2a8ff; }
+.term-out a { color: #79c0ff; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(121, 192, 255, .45); }
+.term-out a:hover { color: #f0f6fc; }
 .term-out .term-err { color: #ff7b72; }
 .term-out { user-select: text; }
 .term-hints {
